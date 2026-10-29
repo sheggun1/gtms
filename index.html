@@ -822,13 +822,31 @@ function fixImg(u) {   // normalize Google Drive file links for direct image emb
     /drive\.google\.com\/file\/d\/([\w-]+)/i,
     /drive\.google\.com\/open\?[^#]*\bid=([\w-]+)/i,
     /drive\.google\.com\/(?:uc|thumbnail)\?[^#]*\bid=([\w-]+)/i,
-    /drive\.google\.com\/uc\?id=([\w-]+)/i
+    /drive\.google\.com\/uc\?id=([\w-]+)/i,
+    /lh3\.googleusercontent\.com\/d\/([\w-]+)/i
   ];
   for (const pattern of patterns) {
     const match = u.match(pattern);
     if (match) return 'https://drive.google.com/thumbnail?id=' + match[1] + '&sz=w1600';
   }
   return u;
+}
+// If a public image endpoint fails, try Google's other common public image endpoints once each.
+function retryPublicImage(img) {
+  if (!img || img.dataset.retrying === 'done') return;
+  const original = img.dataset.originalSrc || img.getAttribute('src') || '';
+  img.dataset.originalSrc = original;
+  const m = original.match(/[?&]id=([\w-]{20,})/) || original.match(/\/d\/([\w-]{20,})/);
+  if (!m) { img.dataset.retrying = 'done'; return; }
+  const id = m[1];
+  const candidates = [
+    'https://drive.google.com/uc?export=view&id=' + id,
+    'https://lh3.googleusercontent.com/d/' + id
+  ];
+  const step = Number(img.dataset.retryStep || 0);
+  if (step >= candidates.length) { img.dataset.retrying = 'done'; return; }
+  img.dataset.retryStep = String(step + 1);
+  img.src = candidates[step];
 }
 function cssUrl(u) {   // safe unquoted css url()
   return 'url(' + fixImg(u).replace(/["'()\\\s<>]/g, c => '%' + c.charCodeAt(0).toString(16).toUpperCase().padStart(2, '0')) + ')';
@@ -1050,7 +1068,7 @@ function renderProprietor(rows) {
   el.innerHTML = `
     <div class="prop reveal">
       <div class="prop-photo">${p.image_url
-        ? `<img loading="lazy" src="${escAttr(fixImg(p.image_url))}" alt="${escAttr(p.name || 'Proprietor')}">`
+        ? `<img loading="lazy" src="${escAttr(fixImg(p.image_url))}" onerror="retryPublicImage(this)" alt="${escAttr(p.name || 'Proprietor')}">`
         : `<div class="initials">${esc(initials(p.name))}</div>`}</div>
       <div class="prop-body">
         <svg class="q" viewBox="0 0 24 24"><use href="#i-quote"/></svg>
@@ -1097,7 +1115,7 @@ function openLightbox(i) {
   el.innerHTML = `
     <button class="lb-btn lb-close" aria-label="Close">×</button>
     ${n > 1 ? `<button class="lb-btn lb-prev" aria-label="Previous">${ic('arrow')}</button><button class="lb-btn lb-next" aria-label="Next">${ic('arrow')}</button>` : ''}
-    <img src="${escAttr(fixImg(g.image_url))}" alt="${escAttr(g.title || '')}">
+    <img src="${escAttr(fixImg(g.image_url))}" onerror="retryPublicImage(this)" alt="${escAttr(g.title || '')}">
     <div class="cap">${esc(g.title || '')}</div>`;
   el.addEventListener('click', e => {
     if (e.target === el || e.target.closest('.lb-close')) closeLightbox();
@@ -1140,7 +1158,7 @@ function openPost(id) {
   const p = state.content.find(x => String(x.id) === String(id));
   if (!p) return;
   modal(p.title, `<div class="post-full">
-      ${p.image_url ? `<img src="${escAttr(fixImg(p.image_url))}" alt="">` : ''}
+      ${p.image_url ? `<img src="${escAttr(fixImg(p.image_url))}" onerror="retryPublicImage(this)" alt="">` : ''}
       <div class="meta">${esc([p.category, fmtDate(p.created_at)].filter(Boolean).join(' · '))}</div>
       <p>${esc(p.body || '')}</p></div>`,
     [{ label: 'Close', cls: 'btn btn-soft', onClick: closeModal }], 'wide');
@@ -1161,7 +1179,7 @@ function renderPublicLinks() {
    ========================================================= */
 function renderDynamicPages() {
   const navLinks = $('navLinks');
-  const menuPages = state.pages.filter(p => String(p.in_menu) === 'true' || p.in_menu === true);
+  const menuPages = [...state.pages].filter(p => ['true','1','yes'].includes(String(p.in_menu).toLowerCase()) || p.in_menu === true).sort((a,b) => Number(a.sort_order || 0) - Number(b.sort_order || 0));
   const contactLink = navLinks.querySelector('a[href="#contact"]');
   navLinks.querySelectorAll('a[data-page]').forEach(a => a.remove());
   menuPages.forEach(p => {
@@ -1188,7 +1206,7 @@ async function showPage(slug) {
       <div class="page-sub">${esc(state.settings.school_name || 'Greater Tomorrow Model Schools')}</div>
       ${page.sections && page.sections.length ? page.sections.map(s => `
         <div class="page-section ${s.image_url ? 'has-img' : ''}">
-          ${s.image_url ? `<img src="${escAttr(fixImg(s.image_url))}" alt="${escAttr(s.heading || '')}">` : ''}
+          ${s.image_url ? `<img src="${escAttr(fixImg(s.image_url))}" onerror="retryPublicImage(this)" alt="${escAttr(s.heading || '')}">` : ''}
           <div>${s.heading ? `<h2>${esc(s.heading)}</h2>` : ''}<p>${esc(s.body || '')}</p></div>
         </div>`).join('') : empty('This page has no content yet')}`;
   } catch (err) {
@@ -1417,7 +1435,22 @@ async function renderSettingsPane(pane) {
       </div>
       <p class="hint">Please make sure these figures are accurate before publishing. They appear prominently on the homepage.</p>
       <button type="submit" class="btn" style="align-self:flex-start">Save settings</button>
-    </form></div>`;
+    </form></div>
+    <div class="panel" style="margin-top:18px"><h3>Image visibility repair</h3>
+      <p class="hint">If pictures appear in the admin area but not on the public website, this checks existing Google Drive image files and enables link viewing where your Workspace policy allows it.</p>
+      <button type="button" class="btn btn-soft" id="repairImagesBtn">Repair existing image access</button>
+      <p class="hint" id="repairImagesResult" role="status" aria-live="polite"></p>
+    </div>`;
+  $('repairImagesBtn').onclick = async () => {
+    const btn = $('repairImagesBtn'), out = $('repairImagesResult');
+    btn.disabled = true; btn.textContent = 'Checking images…'; out.textContent = '';
+    try {
+      const r = await api('repair_public_images');
+      out.textContent = `${r.message || 'Image check completed.'} Found: ${r.found || 0}; updated: ${r.repaired || 0}; failed: ${r.failed || 0}.`;
+      toast(r.failed ? 'Some images still need attention' : 'Image access repaired', r.failed ? 'error' : 'success');
+    } catch (err) { out.textContent = err.message; toast(err.message, 'error'); }
+    finally { btn.disabled = false; btn.textContent = 'Repair existing image access'; }
+  };
   pane.querySelectorAll('[data-pick]').forEach(z => {
     const id = z.dataset.pick, input = $(id + '_file');
     z.onclick = () => input.click(); input.onchange = () => uploadImage(id, input.files[0]);
@@ -1573,12 +1606,14 @@ async function loadPagesPane(pane) {
         <td>${String(r.in_menu) === 'true' ? '<span class="pill blue">In menu</span>' : '—'}</td>
         <td>${cell(r.active, 'bool')}</td>
         <td><div class="row-actions">
+          <button class="btn btn-sm" data-open-page="${escAttr(r.slug)}">Open</button>
           <button class="btn btn-sm" data-sections="${escAttr(r.id)}">Sections</button>
           <button class="btn btn-sm btn-soft" data-edit="${escAttr(r.id)}">Edit</button>
           <button class="btn btn-sm btn-danger" data-del="${escAttr(r.id)}">Delete</button>
         </div></td></tr>`).join('')}</tbody></table></div>`;
     wrap.onclick = e => {
-      const s = e.target.closest('[data-sections]'), ed = e.target.closest('[data-edit]'), dl = e.target.closest('[data-del]');
+      const s = e.target.closest('[data-sections]'), ed = e.target.closest('[data-edit]'), dl = e.target.closest('[data-del]'), op = e.target.closest('[data-open-page]');
+      if (op) { showPublic(); location.hash = '#page/' + op.dataset.openPage; }
       if (s) openPageSectionsEditor(s.dataset.sections);
       if (ed) openPageEditor(ed.dataset.edit);
       if (dl) deletePage(dl.dataset.del);
@@ -1605,14 +1640,14 @@ function openPageEditor(id) {
           in_menu: $('pgMenu').value, sort_order: Number($('pgOrder').value) || 0, active: $('pgActive').value
         };
         if (!payload.title || !payload.slug) return toast('Title and address are required', 'error');
-        try { await api('save_page', ex ? { id: ex.id, ...payload } : payload); closeModal(); toast('Saved', 'success'); switchTab('pages'); }
+        try { await api('save_page', ex ? { id: ex.id, ...payload } : payload); closeModal(); state.pages = await api('public_pages'); renderDynamicPages(); toast('Saved. The public page list has been refreshed.', 'success'); switchTab('pages'); }
         catch (err) { toast(err.message, 'error'); }
       } }
   ]);
 }
 async function deletePage(id) {
   if (!confirm('Delete this page and all its sections?')) return;
-  try { await api('delete_page', { id }); toast('Deleted', 'success'); switchTab('pages'); }
+  try { await api('delete_page', { id }); state.pages = await api('public_pages'); renderDynamicPages(); toast('Deleted', 'success'); switchTab('pages'); }
   catch (err) { toast(err.message, 'error'); }
 }
 async function openPageSectionsEditor(pageId) {
@@ -1660,7 +1695,7 @@ function openPageSectionEditor(pageId, sectionId) {
     { label: 'Save', cls: 'btn', onClick: async () => {
         const payload = { page_id: pageId, heading: $('psHeading').value.trim(), body: $('psBody').value,
           image_url: $('psImg').value, sort_order: Number($('psOrder').value) || 0, active: $('psActive').value };
-        try { await api('save_page_section', ex ? { id: ex.id, ...payload } : payload); toast('Saved', 'success'); openPageSectionsEditor(pageId); }
+        try { await api('save_page_section', ex ? { id: ex.id, ...payload } : payload); toast('Saved', 'success'); openPageSectionsEditor(pageId); if (location.hash === '#page/' + (state.admin.pages.find(p => String(p.id) === String(pageId)) || {}).slug) showPage((state.admin.pages.find(p => String(p.id) === String(pageId)) || {}).slug); }
         catch (err) { toast(err.message, 'error'); }
       } }
   ]);
