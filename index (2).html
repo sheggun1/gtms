@@ -1,0 +1,1838 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Greater Tomorrow Model Schools — Ado Ekiti</title>
+<meta name="description" content="Greater Tomorrow Model Schools, Ado Ekiti, Ekiti State. A caring, co-educational secondary school focused on academic excellence and good character.">
+<meta name="theme-color" content="#0a2351">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Nunito+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0a2351;--navy-2:#0f2f6b;--blue:#1c55c9;--blue-2:#2a6be0;
+  --sky:#e7effc;--sky-2:#d3e2fa;--mist:#f5f8fe;--white:#fff;
+  --ink:#0f1f3d;--muted:#53627d;--soft:#8493ad;--line:#dde6f3;
+  --ok:#177a4b;--bad:#c23030;
+  --r:12px;--r-lg:22px;
+  --shadow-s:0 1px 2px rgba(10,35,81,.06),0 4px 14px rgba(10,35,81,.06);
+  --shadow-m:0 10px 30px rgba(10,35,81,.10);
+  --shadow-l:0 24px 60px rgba(10,35,81,.18);
+  --serif:'Fraunces',Georgia,'Times New Roman',serif;
+  --sans:'Nunito Sans',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  --max:1180px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);color:var(--ink);background:var(--white);line-height:1.65;
+     -webkit-font-smoothing:antialiased;font-size:16px}
+img{max-width:100%;display:block}
+a{color:var(--blue);text-decoration:none}
+a:hover{text-decoration:underline}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+button:disabled{opacity:.55;cursor:not-allowed}
+[hidden]{display:none!important}
+.i{width:1.15em;height:1.15em;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
+.crest{width:100%;height:100%}
+:focus-visible{outline:3px solid rgba(42,107,224,.5);outline-offset:2px;border-radius:6px}
+
+/* ---------- buttons ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:13px 24px;
+     border-radius:10px;background:var(--blue);color:var(--white);font-weight:700;font-size:15px;
+     transition:background .18s,transform .18s,box-shadow .18s;line-height:1.2}
+.btn:hover:not(:disabled){background:var(--navy-2);text-decoration:none;transform:translateY(-1px);box-shadow:var(--shadow-m)}
+.btn-light{background:var(--white);color:var(--navy)}
+.btn-light:hover:not(:disabled){background:var(--sky);}
+.btn-line{background:transparent;color:var(--white);box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.65)}
+.btn-line:hover:not(:disabled){background:rgba(255,255,255,.12)}
+.btn-soft{background:var(--sky);color:var(--blue)}
+.btn-soft:hover:not(:disabled){background:var(--sky-2)}
+.btn-danger{background:var(--bad)}
+.btn-danger:hover:not(:disabled){background:#9f2424}
+.btn-sm{padding:8px 14px;font-size:13px;border-radius:8px}
+.btn .i{transition:transform .18s}
+.btn:hover .i{transform:translateX(3px)}
+
+/* ---------- top bar & nav ---------- */
+.topbar{background:var(--navy);color:#bcd0f2;font-size:13px;padding:9px 0;display:none}
+.topbar-inner{max-width:var(--max);margin:0 auto;padding:0 24px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.topbar a{color:#d9e5fb}
+.topbar span.t{display:inline-flex;align-items:center;gap:8px;margin-right:22px}
+@media(min-width:820px){.topbar{display:block}}
+
+.navbar{background:rgba(255,255,255,.94);backdrop-filter:saturate(1.4) blur(10px);
+        position:sticky;top:0;z-index:100;border-bottom:1px solid var(--line);transition:box-shadow .2s}
+.navbar.scrolled{box-shadow:0 6px 24px rgba(10,35,81,.08)}
+.navbar-inner{max-width:var(--max);margin:0 auto;padding:0 24px;height:80px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.brand{display:flex;align-items:center;gap:13px;text-decoration:none!important;min-width:0}
+.mark{width:50px;height:50px;flex-shrink:0;display:block}
+.mark img{width:100%;height:100%;object-fit:contain}
+.brand-text{line-height:1.2;min-width:0}
+.brand-text strong{display:block;font-family:var(--serif);font-size:17.5px;font-weight:600;color:var(--navy);letter-spacing:.1px}
+.brand-text span{display:block;font-size:12px;color:var(--soft);font-weight:600;letter-spacing:.3px;margin-top:1px}
+.nav-links{display:none;gap:2px;align-items:center}
+.nav-links a{color:var(--muted);padding:9px 12px;border-radius:8px;font-size:14px;font-weight:700;position:relative}
+.nav-links a:hover{color:var(--blue);text-decoration:none;background:var(--mist)}
+.nav-links a.active{color:var(--blue)}
+.nav-links a.active::after{content:'';position:absolute;left:12px;right:12px;bottom:2px;height:2px;border-radius:2px;background:var(--blue)}
+.nav-actions{display:flex;gap:10px;align-items:center}
+.nav-actions .btn{display:none}
+.menu-toggle{width:44px;height:44px;border-radius:10px;background:var(--sky);color:var(--navy);display:inline-flex;align-items:center;justify-content:center}
+.menu-toggle .i{width:22px;height:22px}
+@media(min-width:1040px){.nav-links{display:flex}.menu-toggle{display:none}.nav-actions .btn{display:inline-flex}}
+.mobile-menu{display:none;background:var(--white);border-top:1px solid var(--line);padding:10px 24px 18px;flex-direction:column}
+.mobile-menu.open{display:flex}
+.mobile-menu a{padding:13px 4px;color:var(--ink);font-weight:700;border-bottom:1px solid var(--mist)}
+.mobile-menu a:hover{text-decoration:none;color:var(--blue)}
+.mobile-menu .btn{margin-top:14px;color:#fff;border:none}
+
+/* ---------- hero ---------- */
+.hero{position:relative;height:min(86vh,690px);min-height:520px;overflow:hidden;background:var(--navy);color:var(--white)}
+.hero-slide{position:absolute;inset:0;opacity:0;visibility:hidden;transition:opacity 1.1s ease,visibility 1.1s;
+            background-size:cover;background-position:center;display:flex;align-items:center}
+.hero-slide.active{opacity:1;visibility:visible}
+.hero-slide::after{content:'';position:absolute;inset:0;
+   background:linear-gradient(100deg,rgba(7,24,60,.92) 0%,rgba(10,35,81,.72) 46%,rgba(10,35,81,.18) 100%)}
+.hero-content{position:relative;z-index:2;max-width:var(--max);width:100%;margin:0 auto;padding:0 24px 40px}
+.hero-inner{max-width:640px}
+.hero-eyebrow{display:flex;align-items:center;gap:12px;color:#bcd3fb;font-size:13px;font-weight:800;letter-spacing:2px;text-transform:uppercase;margin-bottom:20px}
+.hero-eyebrow::before{content:'';width:36px;height:2px;background:#8fb4f5}
+.hero h1{font-family:var(--serif);font-size:clamp(34px,5.6vw,62px);font-weight:600;line-height:1.08;letter-spacing:-.8px;margin-bottom:20px}
+.hero p.sub{font-size:clamp(16px,1.6vw,19px);color:#d5e3fb;max-width:540px;margin-bottom:34px;line-height:1.7}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap}
+.hero-controls{position:absolute;z-index:4;left:0;right:0;bottom:84px;max-width:var(--max);margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;pointer-events:none}
+.hero-dots{display:flex;gap:8px;pointer-events:auto}
+.hero-dot{width:26px;height:4px;border-radius:4px;background:rgba(255,255,255,.35);padding:0;transition:all .25s}
+.hero-dot.active{background:#fff;width:48px}
+.hero-arrows{display:flex;gap:8px;pointer-events:auto}
+.hero-arrow{width:44px;height:44px;border-radius:10px;background:rgba(255,255,255,.14);color:#fff;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(4px);transition:background .18s}
+.hero-arrow:hover{background:rgba(255,255,255,.28)}
+.hero-arrow.prev .i{transform:rotate(180deg)}
+@media(max-width:700px){.hero-arrows{display:none}.hero{min-height:560px}.hero-controls{bottom:100px}}
+
+.facts{position:relative;z-index:5;margin-top:-58px}
+.facts-card{background:var(--white);border-radius:var(--r-lg);box-shadow:var(--shadow-l);display:grid;grid-template-columns:repeat(2,1fr);overflow:hidden}
+@media(min-width:760px){.facts-card{grid-template-columns:repeat(4,1fr)}}
+.fact{padding:28px 20px;text-align:center;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+.fact:nth-child(2n){border-right:none}
+@media(min-width:760px){.fact{border-bottom:none}.fact:nth-child(2n){border-right:1px solid var(--line)}.fact:last-child{border-right:none}}
+.fact b{display:block;font-family:var(--serif);font-size:clamp(30px,3.4vw,42px);color:var(--blue);font-weight:600;line-height:1.1}
+.fact span{display:block;font-size:13px;color:var(--muted);font-weight:700;margin-top:6px;letter-spacing:.3px}
+
+/* ---------- sections ---------- */
+.section{padding:100px 0;scroll-margin-top:70px}
+.section-alt{background:var(--mist)}
+.container{max-width:var(--max);margin:0 auto;padding:0 24px}
+.section-head{max-width:680px;margin-bottom:52px}
+.section-head.center{margin-left:auto;margin-right:auto;text-align:center}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;color:var(--blue);font-size:13px;font-weight:800;letter-spacing:2px;text-transform:uppercase;margin-bottom:14px}
+.eyebrow::before{content:'';width:26px;height:2px;background:var(--blue);border-radius:2px}
+.center .eyebrow::after{content:'';width:26px;height:2px;background:var(--blue);border-radius:2px}
+h2.title{font-family:var(--serif);font-size:clamp(28px,3.8vw,44px);font-weight:600;color:var(--navy);line-height:1.15;letter-spacing:-.5px;margin-bottom:14px}
+.section-head p{color:var(--muted);font-size:17px}
+@media(max-width:700px){.section{padding:68px 0}.section-head{margin-bottom:36px}}
+
+/* about */
+.about-grid{display:grid;gap:56px;align-items:center}
+@media(min-width:920px){.about-grid{grid-template-columns:1.02fr 1fr}}
+.about-visual-wrap{position:relative;padding:0 0 28px 28px}
+.about-visual-wrap::before{content:'';position:absolute;left:0;bottom:0;right:28px;top:28px;border:2px solid var(--sky-2);border-radius:var(--r-lg)}
+.about-visual{position:relative;border-radius:var(--r-lg);overflow:hidden;aspect-ratio:4/3.2;background:var(--navy);box-shadow:var(--shadow-l)}
+.about-img{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity 1.4s ease}
+.about-img.active{opacity:1}
+.about-badge{position:absolute;left:18px;right:18px;bottom:18px;background:rgba(255,255,255,.96);color:var(--navy);padding:14px 18px;border-radius:14px;border-left:4px solid var(--blue);z-index:2}
+.about-badge strong{display:block;font-size:11.5px;letter-spacing:1.6px;text-transform:uppercase;color:var(--blue)}
+.about-badge span{font-family:var(--serif);font-size:17px;font-weight:500}
+.about-text .lead{font-size:18px;color:var(--ink);margin-bottom:16px;line-height:1.75;white-space:pre-line}
+.about-text .body-text{color:var(--muted);margin-bottom:28px;white-space:pre-line}
+.about-points{display:grid;gap:18px;margin-bottom:34px}
+.about-point{display:flex;gap:16px;align-items:flex-start}
+.ico{width:46px;height:46px;border-radius:12px;background:var(--sky);color:var(--blue);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.ico .i{width:22px;height:22px}
+.about-point strong{display:block;color:var(--navy);font-size:16px}
+.about-point span{color:var(--muted);font-size:14.5px}
+
+/* story blocks */
+.story-list{display:grid;gap:34px;max-width:1000px;margin:0 auto}
+.story{display:grid;gap:28px;align-items:center;background:var(--white);border-radius:var(--r-lg);padding:30px;box-shadow:var(--shadow-s);border:1px solid var(--line)}
+.story.has-img{grid-template-columns:1fr}
+@media(min-width:800px){.story.has-img{grid-template-columns:.8fr 1fr}.story.has-img:nth-child(even){grid-template-columns:1fr .8fr}.story.has-img:nth-child(even) .story-img{order:2}}
+.story-img{border-radius:16px;aspect-ratio:4/3;object-fit:cover;width:100%}
+.story h3{font-family:var(--serif);font-size:26px;color:var(--navy);margin-bottom:10px;font-weight:600}
+.story p{color:var(--muted);white-space:pre-line;font-size:16px}
+.story:not(.has-img){border-left:5px solid var(--blue)}
+
+/* proprietor */
+.prop{display:grid;gap:0;background:var(--white);border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--shadow-l);max-width:1000px;margin:0 auto}
+@media(min-width:800px){.prop{grid-template-columns:340px 1fr}}
+.prop-photo{background:linear-gradient(160deg,var(--navy),var(--blue));min-height:320px;position:relative}
+.prop-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.prop-photo .initials{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:84px;color:rgba(255,255,255,.85)}
+.prop-body{padding:44px 44px 40px;position:relative}
+.prop-body svg.q{width:46px;height:46px;color:var(--sky-2);margin-bottom:6px}
+.prop-body p{font-family:var(--serif);font-size:clamp(17px,1.9vw,20px);line-height:1.75;color:var(--ink);white-space:pre-line;font-weight:500}
+.prop-sign{margin-top:26px;padding-top:20px;border-top:1px solid var(--line)}
+.prop-sign b{display:block;font-family:var(--serif);font-size:20px;color:var(--navy);font-weight:600}
+.prop-sign span{font-size:13px;color:var(--blue);font-weight:800;letter-spacing:1.4px;text-transform:uppercase}
+@media(max-width:700px){.prop-body{padding:30px 24px}}
+
+/* programs */
+.programs{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:22px}
+.program{background:var(--white);border:1px solid var(--line);border-radius:var(--r-lg);padding:32px 28px;transition:transform .25s,box-shadow .25s,border-color .25s;position:relative}
+.program:hover{transform:translateY(-5px);box-shadow:var(--shadow-m);border-color:var(--sky-2)}
+.program .num{position:absolute;right:24px;top:22px;font-family:var(--serif);font-size:15px;color:var(--sky-2);font-weight:700}
+.program .ico{margin-bottom:20px}
+.program h3{font-family:var(--serif);color:var(--navy);font-size:21px;font-weight:600;margin-bottom:8px}
+.program p{color:var(--muted);font-size:15px}
+
+/* parents */
+.parents{background:var(--navy);color:#fff;position:relative;overflow:hidden}
+.parents::before{content:'';position:absolute;right:-160px;top:-160px;width:460px;height:460px;border-radius:50%;border:70px solid rgba(255,255,255,.04)}
+.parents h2.title{color:#fff}
+.parents .eyebrow{color:#a9c6f8}.parents .eyebrow::before{background:#a9c6f8}
+.parents .section-head p{color:#c3d5f4}
+.pgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:30px 34px;position:relative}
+.pitem .ico{background:rgba(255,255,255,.1);color:#bcd3fb;margin-bottom:16px}
+.pitem h3{font-family:var(--serif);font-size:20px;font-weight:600;margin-bottom:8px}
+.pitem p{color:#c3d5f4;font-size:15px}
+
+/* staff */
+.staff-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:26px}
+.staff-card{background:var(--white);border-radius:var(--r-lg);overflow:hidden;border:1px solid var(--line);transition:transform .25s,box-shadow .25s}
+.staff-card:hover{transform:translateY(-5px);box-shadow:var(--shadow-m)}
+.staff-photo{aspect-ratio:4/4.4;background:var(--sky) center/cover;display:flex;align-items:center;justify-content:center}
+.staff-photo .initials{font-family:var(--serif);font-size:56px;color:var(--blue);font-weight:600}
+.staff-info{padding:20px 20px 24px}
+.staff-info h4{font-family:var(--serif);color:var(--navy);font-size:18px;font-weight:600}
+.staff-info .role{color:var(--blue);font-size:12.5px;font-weight:800;letter-spacing:1.1px;text-transform:uppercase;margin:3px 0 8px}
+.staff-info .bio{color:var(--muted);font-size:14px;line-height:1.6}
+
+/* gallery */
+.gallery-grid{display:grid;grid-template-columns:repeat(2,1fr);grid-auto-rows:150px;gap:12px;grid-auto-flow:dense}
+@media(min-width:760px){.gallery-grid{grid-template-columns:repeat(4,1fr);grid-auto-rows:190px;gap:14px}}
+.g-item{position:relative;border-radius:14px;overflow:hidden;background:var(--sky) center/cover;transition:transform .3s;display:block;width:100%;height:100%}
+.g-item:nth-child(7n+1){grid-column:span 2;grid-row:span 2}
+.g-item:nth-child(7n+5){grid-row:span 2}
+.g-item::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(10,35,81,.65),transparent 55%);opacity:0;transition:opacity .25s}
+.g-item:hover::after,.g-item:focus-visible::after{opacity:1}
+.g-cap{position:absolute;left:14px;right:14px;bottom:12px;color:#fff;font-weight:700;font-size:14px;z-index:2;text-align:left;opacity:0;transform:translateY(6px);transition:all .25s}
+.g-item:hover .g-cap{opacity:1;transform:none}
+
+/* admissions */
+.adm{display:grid;gap:48px}
+@media(min-width:940px){.adm{grid-template-columns:.9fr 1.1fr;align-items:start}.adm-side{position:sticky;top:110px}}
+.adm-card{background:var(--navy);color:#fff;border-radius:var(--r-lg);padding:34px 32px;margin-top:28px}
+.adm-card h4{font-family:var(--serif);font-size:20px;font-weight:600;margin-bottom:6px}
+.adm-card p{color:#c3d5f4;font-size:15px;margin-bottom:18px}
+.adm-card .row{display:flex;gap:12px;flex-wrap:wrap}
+.steps{position:relative;display:grid;gap:18px}
+.steps::before{content:'';position:absolute;left:23px;top:24px;bottom:24px;width:2px;background:var(--sky-2)}
+.step{position:relative;padding:4px 0 4px 72px}
+.step .n{position:absolute;left:0;top:0;width:48px;height:48px;border-radius:50%;background:var(--white);border:2px solid var(--blue);color:var(--blue);font-family:var(--serif);font-weight:700;font-size:19px;display:flex;align-items:center;justify-content:center}
+.step h3{font-family:var(--serif);color:var(--navy);font-size:20px;font-weight:600;margin-bottom:4px}
+.step p{color:var(--muted);font-size:15px}
+
+/* news */
+.posts-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:28px}
+.post{background:var(--white);border-radius:var(--r-lg);overflow:hidden;border:1px solid var(--line);display:flex;flex-direction:column;text-align:left;transition:transform .25s,box-shadow .25s;width:100%}
+.post:hover{transform:translateY(-5px);box-shadow:var(--shadow-m)}
+.post-image{aspect-ratio:16/10;background:var(--sky) center/cover}
+.post-body{padding:22px 22px 24px;display:flex;flex-direction:column;gap:10px;flex:1}
+.post-tag{align-self:flex-start;font-size:11.5px;font-weight:800;letter-spacing:1.3px;text-transform:uppercase;color:var(--blue);background:var(--sky);padding:4px 11px;border-radius:6px}
+.post-body h3{font-family:var(--serif);color:var(--navy);font-size:20px;line-height:1.3;font-weight:600}
+.post-body p{color:var(--muted);font-size:14.5px;flex:1;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.post-meta{font-size:13px;color:var(--soft);display:flex;justify-content:space-between;padding-top:12px;border-top:1px solid var(--mist);font-weight:600}
+.post-meta .more{color:var(--blue);display:inline-flex;align-items:center;gap:6px}
+
+/* links */
+.links-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
+.link-card{background:var(--white);border:1px solid var(--line);border-radius:var(--r);padding:22px;display:flex;gap:16px;align-items:flex-start;color:var(--ink);transition:all .2s}
+.link-card:hover{border-color:var(--blue);box-shadow:var(--shadow-m);text-decoration:none;transform:translateY(-3px)}
+.link-card strong{display:block;color:var(--navy);font-size:16px}
+.link-card span.d{color:var(--muted);font-size:14px;display:block}
+
+/* cta */
+.cta{background:var(--blue);color:#fff;padding:78px 0;position:relative;overflow:hidden}
+.cta::after{content:'';position:absolute;left:-120px;bottom:-190px;width:420px;height:420px;border-radius:50%;border:64px solid rgba(255,255,255,.07)}
+.cta-inner{display:grid;gap:28px;align-items:center;position:relative;z-index:1}
+@media(min-width:860px){.cta-inner{grid-template-columns:1fr auto}}
+.cta h2{font-family:var(--serif);font-size:clamp(28px,3.6vw,42px);font-weight:600;line-height:1.15;margin-bottom:10px}
+.cta p{color:#dbe7fc;font-size:17px;max-width:580px}
+.cta-actions{display:flex;gap:14px;flex-wrap:wrap}
+
+/* footer */
+footer{background:var(--navy);color:#b9cbec;padding:70px 0 26px;scroll-margin-top:70px}
+.footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:40px;margin-bottom:46px}
+.footer-brand{display:flex;gap:12px;align-items:center;margin-bottom:16px}
+.footer-brand .mark{width:46px;height:46px}
+.footer-brand strong{font-family:var(--serif);color:#fff;font-size:18px;font-weight:600;line-height:1.2}
+.footer-grid h4{color:#fff;font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:1.6px;margin-bottom:18px}
+.footer-grid p,.footer-grid li{font-size:14.5px;line-height:1.8}
+.footer-grid ul{list-style:none}
+.footer-grid li{display:flex;gap:10px;align-items:flex-start;margin-bottom:6px}
+.footer-grid li .i{margin-top:5px;color:#8fb4f5}
+.footer-grid a{color:#d6e3fa}
+.footer-grid a:hover{color:#fff}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:22px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:13px;color:#8ea4cc}
+.footer-bottom a{color:#8ea4cc}
+
+.m-bar{display:none}
+@media(max-width:760px){
+  .m-bar{display:grid;grid-template-columns:1fr 1fr;gap:10px;position:fixed;left:0;right:0;bottom:0;z-index:90;padding:10px 14px calc(10px + env(safe-area-inset-bottom));background:rgba(255,255,255,.96);backdrop-filter:blur(8px);border-top:1px solid var(--line)}
+  .m-bar a{display:flex;align-items:center;justify-content:center;gap:8px;padding:12px;border-radius:10px;font-weight:800;font-size:14px;background:var(--sky);color:var(--blue)}
+  .m-bar a.primary{background:var(--blue);color:#fff}
+  .m-bar a:hover{text-decoration:none}
+  body.public-on{padding-bottom:72px}
+}
+
+/* states */
+.empty{text-align:center;padding:48px 20px;color:var(--soft);grid-column:1/-1}
+.empty h3{color:var(--muted);margin-bottom:6px;font-size:17px;font-family:var(--serif)}
+.skel{background:linear-gradient(90deg,var(--mist) 25%,var(--sky) 50%,var(--mist) 75%);background-size:200% 100%;animation:shimmer 1.3s infinite;border-radius:var(--r);min-height:140px;grid-column:auto}
+@keyframes shimmer{to{background-position:-200% 0}}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+
+/* page view */
+.page-view{min-height:60vh;padding:70px 0 90px;background:var(--white)}
+.page-view .container{max-width:880px}
+.page-view .back{display:inline-flex;gap:8px;align-items:center;font-weight:700;font-size:14px;margin-bottom:26px;color:var(--blue)}
+.page-view .back .i{transform:rotate(180deg)}
+.page-view h1{font-family:var(--serif);color:var(--navy);font-size:clamp(30px,4.4vw,46px);font-weight:600;letter-spacing:-.5px;line-height:1.15;margin-bottom:10px}
+.page-view .page-sub{color:var(--soft);font-size:14px;margin-bottom:38px;padding-bottom:20px;border-bottom:1px solid var(--line);font-weight:600}
+.page-section{display:grid;gap:22px;margin-bottom:34px}
+@media(min-width:760px){.page-section.has-img{grid-template-columns:260px 1fr;align-items:start}}
+.page-section img{width:100%;border-radius:var(--r);object-fit:cover}
+.page-section h2{font-family:var(--serif);color:var(--navy);font-size:24px;font-weight:600;margin-bottom:8px}
+.page-section p{color:var(--muted);font-size:16.5px;line-height:1.85;white-space:pre-line}
+
+/* toast, modal, lightbox */
+.toast-container{position:fixed;top:92px;right:18px;z-index:9999;display:flex;flex-direction:column;gap:10px;max-width:340px}
+.toast{padding:13px 18px;border-radius:10px;box-shadow:var(--shadow-l);font-size:14px;font-weight:700;color:#fff;animation:slidein .25s ease-out}
+.toast-success{background:var(--ok)}.toast-error{background:var(--bad)}.toast-info{background:var(--navy-2)}
+@keyframes slidein{from{transform:translateX(30px);opacity:0}to{transform:none;opacity:1}}
+.modal-backdrop{position:fixed;inset:0;background:rgba(7,24,60,.62);display:flex;align-items:center;justify-content:center;padding:20px;z-index:1000;backdrop-filter:blur(3px)}
+.modal{background:var(--white);border-radius:18px;width:100%;max-width:620px;max-height:90vh;overflow-y:auto;box-shadow:var(--shadow-l)}
+.modal.wide{max-width:760px}
+.modal-header{padding:20px 26px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:12px;position:sticky;top:0;background:var(--white);z-index:2}
+.modal-header h2{font-family:var(--serif);font-size:21px;color:var(--navy);font-weight:600;line-height:1.3}
+.modal-body{padding:24px 26px;display:flex;flex-direction:column;gap:18px}
+.modal-footer{padding:16px 26px;border-top:1px solid var(--line);display:flex;justify-content:flex-end;gap:12px;position:sticky;bottom:0;background:var(--white)}
+.close-x{width:36px;height:36px;border-radius:50%;color:var(--soft);font-size:26px;line-height:1;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.close-x:hover{background:var(--sky);color:var(--navy)}
+.post-full img{border-radius:14px;width:100%;margin-bottom:16px;max-height:340px;object-fit:cover}
+.post-full .meta{font-size:13px;color:var(--soft);font-weight:700;margin-bottom:12px}
+.post-full p{white-space:pre-line;color:var(--ink);font-size:16.5px;line-height:1.8}
+.lightbox{position:fixed;inset:0;background:rgba(5,16,40,.94);z-index:2000;display:flex;align-items:center;justify-content:center;padding:24px;flex-direction:column;gap:14px}
+.lightbox img{max-width:92%;max-height:80vh;object-fit:contain;border-radius:8px}
+.lightbox .cap{color:#d6e3fa;font-weight:600;min-height:24px;text-align:center}
+.lb-btn{position:absolute;width:48px;height:48px;border-radius:50%;background:rgba(255,255,255,.14);color:#fff;display:flex;align-items:center;justify-content:center;font-size:24px}
+.lb-btn:hover{background:rgba(255,255,255,.28)}
+.lb-close{top:20px;right:20px}.lb-prev{left:18px;top:50%}.lb-next{right:18px;top:50%}
+.lb-prev .i{transform:rotate(180deg)}
+
+/* ---------- forms ---------- */
+input,textarea,select{font-family:inherit;font-size:15px;width:100%;padding:11px 14px;border:1.5px solid var(--line);border-radius:10px;background:var(--white);color:var(--ink);transition:border-color .15s,box-shadow .15s}
+input:focus,textarea:focus,select:focus{outline:none;border-color:var(--blue-2);box-shadow:0 0 0 4px rgba(42,107,224,.14)}
+textarea{resize:vertical;min-height:100px}
+label{display:block;font-size:13px;font-weight:800;color:var(--muted);margin-bottom:6px;letter-spacing:.2px}
+.form-row{display:flex;gap:14px;flex-wrap:wrap}.form-row>*{flex:1;min-width:150px}
+.hint{font-size:12.5px;color:var(--soft);margin-top:6px}
+.upload-zone{border:2px dashed var(--sky-2);border-radius:12px;padding:18px;text-align:center;color:var(--muted);font-size:14px;background:var(--mist);cursor:pointer;transition:all .18s;font-weight:700}
+.upload-zone small{display:block;font-weight:400;color:var(--soft);margin-top:2px}
+.upload-zone:hover{border-color:var(--blue-2);background:var(--sky)}
+.img-preview{width:100%;max-height:200px;object-fit:contain;background:var(--mist);border-radius:12px;border:1px solid var(--line);margin-top:12px}
+
+/* ---------- login & admin ---------- */
+#loginView{background:linear-gradient(160deg,var(--mist),var(--sky));min-height:100vh;align-items:center;justify-content:center;padding:20px}
+.login-wrap{width:100%;max-width:420px;background:var(--white);padding:40px 36px;border-radius:var(--r-lg);box-shadow:var(--shadow-l)}
+.login-wrap .mark{width:58px;height:58px;margin-bottom:18px}
+.login-wrap h2{font-family:var(--serif);color:var(--navy);margin-bottom:6px;font-size:28px;font-weight:600}
+.login-wrap p{color:var(--muted);font-size:14.5px;margin-bottom:26px}
+.login-wrap form{display:flex;flex-direction:column;gap:18px}
+.login-error{background:#fdf1f1;color:var(--bad);padding:12px 14px;border-radius:10px;font-size:14px;border:1px solid #f4c9c9}
+.admin-shell{background:var(--mist);min-height:100vh}
+.admin-bar{background:var(--navy);color:#fff;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:64px;position:sticky;top:0;z-index:100;box-shadow:var(--shadow-s)}
+.admin-bar .brand{color:#fff;font-weight:700}
+.admin-bar .brand .mark{width:36px;height:36px}
+.admin-bar .brand b{font-family:var(--serif);font-weight:600;font-size:17px}
+.admin-bar nav{display:flex;gap:8px;align-items:center}
+.admin-bar nav button{background:rgba(255,255,255,.12);color:#fff;padding:8px 14px;border-radius:8px;font-size:13.5px;font-weight:700}
+.admin-bar nav button:hover{background:rgba(255,255,255,.22)}
+.admin-main{max-width:var(--max);margin:0 auto;padding:30px 24px 60px}
+.tabs{display:flex;gap:4px;border-bottom:2px solid var(--line);margin-bottom:28px;overflow-x:auto}
+.tab{color:var(--muted);padding:12px 16px;border-radius:8px 8px 0 0;font-weight:800;font-size:13.5px;border-bottom:3px solid transparent;margin-bottom:-2px;white-space:nowrap}
+.tab:hover{background:var(--sky);color:var(--blue)}
+.tab.active{background:var(--white);color:var(--blue);border-bottom-color:var(--blue)}
+.page-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:22px;flex-wrap:wrap;gap:14px}
+.page-head h1{font-family:var(--serif);font-size:28px;color:var(--navy);font-weight:600}
+.page-head p{color:var(--muted);font-size:14.5px;margin-top:2px}
+.panel{background:var(--white);padding:28px;border-radius:var(--r);box-shadow:var(--shadow-s);max-width:740px}
+.panel form{display:flex;flex-direction:column;gap:18px}
+.panel h3{font-family:var(--serif);color:var(--navy);font-size:18px;margin:6px 0 -6px}
+.table-wrap{background:var(--white);border-radius:var(--r);box-shadow:var(--shadow-s);overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th,td{padding:13px 16px;text-align:left;border-bottom:1px solid var(--mist);vertical-align:middle}
+th{background:var(--sky);color:var(--navy);font-weight:800;font-size:12px;text-transform:uppercase;letter-spacing:.8px}
+tr:last-child td{border-bottom:none}
+tr:hover td{background:var(--mist)}
+.thumb{width:54px;height:54px;object-fit:cover;border-radius:8px;background:var(--sky);display:block}
+.empty-thumb{display:block}
+.pill{display:inline-block;font-size:11.5px;font-weight:800;padding:4px 10px;border-radius:999px;letter-spacing:.4px}
+.pill.ok{background:#e3f4ea;color:var(--ok)}.pill.off{background:var(--mist);color:var(--soft)}
+.pill.blue{background:var(--sky);color:var(--blue)}
+.row-actions{display:flex;gap:6px;flex-wrap:wrap}
+.sec-item{background:var(--mist);border:1px solid var(--line);border-radius:12px;padding:12px;display:flex;gap:12px;align-items:center}
+.sec-item .thumb{width:52px;height:52px;flex-shrink:0}
+.sec-item .txt{flex:1;min-width:0}
+.sec-item .txt strong{display:block;color:var(--navy);font-size:14px}
+.sec-item .txt span{color:var(--muted);font-size:12.5px;display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.sec-item .btns{display:flex;flex-direction:column;gap:4px}
+@media(max-width:640px){
+  .navbar-inner{height:68px;padding:0 16px}.mark{width:42px;height:42px}
+  .brand-text strong{font-size:14.5px}.brand-text span{font-size:11px}
+  .hero-actions .btn{flex:1;min-width:160px}
+  .admin-main{padding:20px 14px 50px}.modal-body,.modal-header,.modal-footer{padding-left:18px;padding-right:18px}
+  .toast-container{top:76px;left:14px;right:14px;max-width:none}
+}
+</style>
+</head>
+<body>
+
+<!-- Icon & crest library (hand-drawn line icons) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="crest" viewBox="0 0 48 52">
+      <path d="M24 2 43 8.5V26c0 11.5-8 19.5-19 24C13 45.500 5 37.500 5 26V8.500z" fill="#0a2351" stroke="#8fb4f5" stroke-width="1.5"/>
+      <path d="M24 31c-3.600-2.800-8.200-3.200-12-1.400V19.500c3.800-1.800 8.400-1.400 12 1.400 3.600-2.800 8.200-3.200 12-1.400V29.600c-3.800-1.800-8.400-1.400-12 1.400z" fill="none" stroke="#fff" stroke-width="1.8" stroke-linejoin="round"/>
+      <path d="M24 20.900V31" stroke="#fff" stroke-width="1.8"/>
+      <path d="M16.500 14.500a8 8 0 0 1 15 0" fill="none" stroke="#8fb4f5" stroke-width="1.8" stroke-linecap="round"/>
+      <circle cx="24" cy="11.200" r="1.700" fill="#8fb4f5"/>
+    </symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.920v3a2 2 0 0 1-2.180 2 19.790 19.790 0 0 1-8.630-3.070 19.500 19.500 0 0 1-6-6A19.790 19.790 0 0 1 2.120 4.180 2 2 0 0 1 4.110 2h3a2 2 0 0 1 2 1.720c.127.960.361 1.903.7 2.810a2 2 0 0 1-.45 2.110L8.090 9.910a16 16 0 0 0 6 6l1.270-1.270a2 2 0 0 1 2.110-.45c.907.339 1.850.573 2.810.7A2 2 0 0 1 22 16.920z"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+    <symbol id="i-book" viewBox="0 0 24 24"><path d="M4 19.500A2.500 2.500 0 0 1 6.500 17H20V3H6.500A2.500 2.500 0 0 0 4 5.500z"/><path d="M4 19.500A2.500 2.500 0 0 0 6.500 22H20v-5"/></symbol>
+    <symbol id="i-flask" viewBox="0 0 24 24"><path d="M9 3h6M10 3v6L4.500 19a1.500 1.500 0 0 0 1.300 2.200h12.400a1.500 1.500 0 0 0 1.300-2.200L14 9V3"/><path d="M7.500 15h9"/></symbol>
+    <symbol id="i-pen" viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.500 3.500a2.100 2.100 0 0 1 3 3L7 19l-4 1 1-4z"/></symbol>
+    <symbol id="i-chart" viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="m7 15 4-4 3 3 5-6"/></symbol>
+    <symbol id="i-laptop" viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="11" rx="1.500"/><path d="M2 19.500h20"/></symbol>
+    <symbol id="i-trophy" viewBox="0 0 24 24"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0z"/><path d="M7 6H4v1a3 3 0 0 0 3 3M17 6h3v1a3 3 0 0 1-3 3"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 4.500-3.200 8.300-8 9.500C7.200 20.300 4 16.500 4 12V6z"/><path d="m9 12 2 2 4-4"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.500"/><path d="M2.500 20c0-3.600 2.900-6 6.500-6s6.500 2.400 6.500 6"/><circle cx="17" cy="9" r="2.500"/><path d="M17 14c2.600 0 4.500 1.800 4.500 4.500"/></symbol>
+    <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></symbol>
+    <symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.500 2.500M15.500 15.500 18 18M18 6l-2.500 2.500M8.500 15.500 6 18"/></symbol>
+    <symbol id="i-door" viewBox="0 0 24 24"><path d="M5 21V4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v17"/><path d="M3 21h18"/><circle cx="15" cy="12.500" r=".8"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-ext" viewBox="0 0 24 24"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h10"/></symbol>
+    <symbol id="i-quote" viewBox="0 0 24 24"><path d="M4 18v-6c0-4 2.500-6.500 6-7l.5 2C8.500 7.500 8 9 8 10.500h2.500V18zm9 0v-6c0-4 2.500-6.500 6-7l.5 2C17.500 7.500 17 9 17 10.500h2.500V18z" fill="currentColor" stroke="none"/></symbol>
+  </defs>
+</svg>
+
+<div class="toast-container" id="toasts" aria-live="polite"></div>
+
+<div id="publicSite">
+  <div class="topbar">
+    <div class="topbar-inner">
+      <div>
+        <span class="t"><svg class="i"><use href="#i-phone"/></svg><a id="tPhone" href="#contact">Call the school office</a></span>
+        <span class="t"><svg class="i"><use href="#i-mail"/></svg><a id="tEmail" href="#contact">Send us an email</a></span>
+      </div>
+      <div class="t" style="display:inline-flex;align-items:center;gap:8px"><svg class="i"><use href="#i-pin"/></svg><span id="tAddress">Ado Ekiti, Ekiti State</span></div>
+    </div>
+  </div>
+
+  <header class="navbar" id="navbar">
+    <div class="navbar-inner">
+      <a href="#home" class="brand" aria-label="Greater Tomorrow Model Schools home">
+        <span class="mark" id="brandMark"><svg class="crest"><use href="#crest"/></svg></span>
+        <span class="brand-text">
+          <strong id="brandName">Greater Tomorrow Model Schools</strong>
+          <span id="brandTag">Ado Ekiti, Ekiti State</span>
+        </span>
+      </a>
+      <nav class="nav-links" id="navLinks" aria-label="Main">
+        <a href="#home" class="active">Home</a>
+        <a href="#about">About</a>
+        <a href="#academics">Academics</a>
+        <a href="#staff">Staff</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#admissions">Admissions</a>
+        <a href="#news">News</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div class="nav-actions">
+        <a class="btn btn-sm" href="#admissions">Apply for admission</a>
+        <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false"><svg class="i"><use href="#i-menu"/></svg></button>
+      </div>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#academics">Academics</a>
+      <a href="#staff">Staff</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#admissions">Admissions</a>
+      <a href="#news">News</a>
+      <span id="mobileDynamicPages" style="display:contents"></span>
+      <a href="#contact">Contact</a>
+      <a class="btn" href="#admissions">Apply for admission</a>
+    </div>
+  </header>
+
+  <div id="homeView">
+    <section class="hero" id="home" aria-label="Welcome">
+      <div id="heroSlides"></div>
+      <div class="hero-controls">
+        <div class="hero-dots" id="heroDots"></div>
+        <div class="hero-arrows">
+          <button class="hero-arrow prev" id="heroPrev" aria-label="Previous slide"><svg class="i"><use href="#i-arrow"/></svg></button>
+          <button class="hero-arrow next" id="heroNext" aria-label="Next slide"><svg class="i"><use href="#i-arrow"/></svg></button>
+        </div>
+      </div>
+    </section>
+
+    <div class="facts">
+      <div class="container">
+        <div class="facts-card" id="factsCard"></div>
+      </div>
+    </div>
+
+    <section class="section" id="about">
+      <div class="container">
+        <div class="about-grid">
+          <div class="about-visual-wrap reveal">
+            <div class="about-visual" id="aboutVisual">
+              <div class="about-img active" style="background-image:url(https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=900)"></div>
+              <div class="about-badge">
+                <strong id="aboutBadgeTitle">Our Motto</strong>
+                <span id="aboutBadgeText">Knowledge • Character • Excellence</span>
+              </div>
+            </div>
+          </div>
+          <div class="about-text reveal">
+            <span class="eyebrow">About us</span>
+            <h2 class="title" id="aboutHeading">A school where every child is known by name</h2>
+            <p class="lead" id="aboutLead">Greater Tomorrow Model Schools is a co-educational secondary school in Ado Ekiti, Ekiti State, where children are guided to grow in knowledge, in character and in confidence.</p>
+            <p class="body-text" id="aboutBody">Our dedicated teachers and well-kept classrooms give every student the space to discover what they are good at.</p>
+            <div class="about-points">
+              <div class="about-point"><span class="ico"><svg class="i"><use href="#i-book"/></svg></span><div><strong>Academic excellence</strong><span>Careful teaching and steady preparation for WAEC and NECO.</span></div></div>
+              <div class="about-point"><span class="ico"><svg class="i"><use href="#i-target"/></svg></span><div><strong>Character formation</strong><span>Discipline, integrity and responsibility in everything we do.</span></div></div>
+              <div class="about-point"><span class="ico"><svg class="i"><use href="#i-users"/></svg></span><div><strong>Leadership development</strong><span>Student council, clubs and service programmes that build confidence.</span></div></div>
+            </div>
+            <a class="btn" href="#admissions">Join our community <svg class="i"><use href="#i-arrow"/></svg></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="about-school">
+      <div class="container">
+        <div class="section-head center reveal">
+          <span class="eyebrow">Our story</span>
+          <h2 class="title">Who we are</h2>
+          <p>Our history, vision, mission and the values we hold dear.</p>
+        </div>
+        <div class="story-list" id="aboutSchoolList"><div class="skel"></div></div>
+      </div>
+    </section>
+
+    <section class="section" id="proprietor">
+      <div class="container">
+        <div class="section-head center reveal">
+          <span class="eyebrow">Proprietor's message</span>
+          <h2 class="title">A word to parents</h2>
+        </div>
+        <div id="proprietorBox"><div class="skel"></div></div>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="academics">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Academics</span>
+          <h2 class="title">Learning that prepares them for what comes next</h2>
+          <p>A complete secondary education from JSS 1 to SSS 3, with a pathway for every kind of learner.</p>
+        </div>
+        <div class="programs">
+          <article class="program reveal"><span class="num">01</span><span class="ico"><svg class="i"><use href="#i-book"/></svg></span><h3>Junior Secondary</h3><p>JSS 1–3 lays the foundation in English, Mathematics, Basic Science and Social Studies.</p></article>
+          <article class="program reveal"><span class="num">02</span><span class="ico"><svg class="i"><use href="#i-flask"/></svg></span><h3>Science</h3><p>Physics, Chemistry, Biology, Further Mathematics and Agricultural Science.</p></article>
+          <article class="program reveal"><span class="num">03</span><span class="ico"><svg class="i"><use href="#i-pen"/></svg></span><h3>Arts &amp; Humanities</h3><p>Literature, Government, History, CRS/IRS and Fine Arts.</p></article>
+          <article class="program reveal"><span class="num">04</span><span class="ico"><svg class="i"><use href="#i-chart"/></svg></span><h3>Commercial Studies</h3><p>Accounting, Commerce, Economics and Business Studies.</p></article>
+          <article class="program reveal"><span class="num">05</span><span class="ico"><svg class="i"><use href="#i-laptop"/></svg></span><h3>ICT &amp; Technology</h3><p>Computer studies, coding fundamentals and everyday digital skills.</p></article>
+          <article class="program reveal"><span class="num">06</span><span class="ico"><svg class="i"><use href="#i-trophy"/></svg></span><h3>Co-curricular</h3><p>Sports, debate, drama, music and leadership clubs.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section parents" id="parents">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">For parents</span>
+          <h2 class="title">What you can expect from us</h2>
+          <p>We know you are trusting us with the most important person in your life. Here is how we try to earn that trust every day.</p>
+        </div>
+        <div class="pgrid">
+          <div class="pitem reveal"><span class="ico"><svg class="i"><use href="#i-shield"/></svg></span><h3>A safe, caring environment</h3><p>Your child is known by name. Teachers and the school office look out for every pupil from morning to closing.</p></div>
+          <div class="pitem reveal"><span class="ico"><svg class="i"><use href="#i-book"/></svg></span><h3>Teaching that works</h3><p>Committed teachers, clear lesson plans and regular assessment, with extra help for those who need it.</p></div>
+          <div class="pitem reveal"><span class="ico"><svg class="i"><use href="#i-spark"/></svg></span><h3>Character first</h3><p>Discipline, honesty and respect are taught daily, in the classroom, on the field and in how we speak to each other.</p></div>
+          <div class="pitem reveal"><span class="ico"><svg class="i"><use href="#i-door"/></svg></span><h3>Doors always open</h3><p>Results and school news are shared openly. Call, send a message or walk in. We are glad to hear from you.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="staff">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Our team</span>
+          <h2 class="title">Meet the people who teach and guide your child</h2>
+        </div>
+        <div class="staff-grid" id="staffGrid"><div class="skel"></div><div class="skel"></div><div class="skel"></div></div>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="gallery">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Gallery</span>
+          <h2 class="title">Life at Greater Tomorrow</h2>
+          <p>A glimpse of classrooms, events and everyday moments on our campus.</p>
+        </div>
+        <div class="gallery-grid" id="galleryGrid"><div class="skel"></div><div class="skel"></div><div class="skel"></div><div class="skel"></div></div>
+      </div>
+    </section>
+
+    <section class="section" id="admissions">
+      <div class="container">
+        <div class="adm">
+          <div class="adm-side reveal">
+            <span class="eyebrow">Admissions</span>
+            <h2 class="title">Begin your child's journey with us</h2>
+            <p style="color:var(--muted);font-size:17px">Applications for the <b class="js-session">2026/2027</b> session are now open. The steps are simple, and our office is happy to guide you through each one.</p>
+            <div class="adm-card">
+              <h4>Prefer to talk first?</h4>
+              <p>Speak with the school office. We will answer your questions and arrange a visit.</p>
+              <div class="row">
+                <a class="btn btn-light btn-sm" id="admCall" href="#contact"><svg class="i"><use href="#i-phone"/></svg> Call the office</a>
+                <a class="btn btn-line btn-sm" id="admMail" href="#contact"><svg class="i"><use href="#i-mail"/></svg> Send an email</a>
+              </div>
+            </div>
+          </div>
+          <div class="steps" id="admissionsList"><div class="skel"></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="news">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Latest news</span>
+          <h2 class="title">School announcements</h2>
+          <p>Notices, events and updates for parents and students.</p>
+        </div>
+        <div class="posts-grid" id="newsGrid"><div class="skel"></div><div class="skel"></div><div class="skel"></div></div>
+      </div>
+    </section>
+
+    <section class="section" id="links">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Quick links</span>
+          <h2 class="title">Useful resources</h2>
+        </div>
+        <div class="links-grid" id="publicLinks"><div class="skel"></div></div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <div class="container">
+        <div class="cta-inner">
+          <div>
+            <h2>Come and see the school for yourself</h2>
+            <p>Visit us, meet our teachers and see where your child will learn and grow.</p>
+          </div>
+          <div class="cta-actions">
+            <a class="btn btn-light" href="#admissions">View admissions</a>
+            <a class="btn btn-line" href="#contact">Contact us</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div id="pageView" class="page-view" style="display:none">
+    <div class="container" id="pageViewContent"></div>
+  </div>
+
+  <footer id="contact">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">
+            <span class="mark" id="footMark"><svg class="crest"><use href="#crest"/></svg></span>
+            <strong id="footName">Greater Tomorrow Model Schools</strong>
+          </div>
+          <p id="footerAbout">A co-educational secondary school committed to academic excellence and good character.</p>
+        </div>
+        <div>
+          <h4>Explore</h4>
+          <ul id="footerPages" style="display:block">
+            <li><a href="#about">About us</a></li>
+            <li><a href="#academics">Academics</a></li>
+            <li><a href="#admissions">Admissions</a></li>
+            <li><a href="#news">News &amp; events</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Get in touch</h4>
+          <ul>
+            <li><svg class="i"><use href="#i-pin"/></svg><span id="fAddress">Ado Ekiti, Ekiti State</span></li>
+            <li><svg class="i"><use href="#i-phone"/></svg><a id="fPhoneLink" href="#contact"><span id="fPhone">Phone number coming soon</span></a></li>
+            <li><svg class="i"><use href="#i-mail"/></svg><a id="fEmailLink" href="#contact"><span id="fEmail">Email coming soon</span></a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>School hours</h4>
+          <ul>
+            <li><svg class="i"><use href="#i-clock"/></svg><span>Monday – Friday: 7:30 AM – 3:30 PM</span></li>
+            <li><svg class="i"><use href="#i-clock"/></svg><span>Saturday: 8:00 AM – 12:00 PM</span></li>
+            <li><svg class="i"><use href="#i-clock"/></svg><span>Sunday: Closed</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© <span id="year"></span> Greater Tomorrow Model Schools, Ado Ekiti. All rights reserved.</span>
+        <a href="#" id="adminLink">Staff login</a>
+      </div>
+    </div>
+  </footer>
+
+  <div class="m-bar">
+    <a id="mCall" href="#contact"><svg class="i"><use href="#i-phone"/></svg> Call school</a>
+    <a class="primary" href="#admissions">Apply now</a>
+  </div>
+</div>
+
+<div id="loginView" style="display:none">
+  <div class="login-wrap">
+    <span class="mark" id="loginMark"><svg class="crest"><use href="#crest"/></svg></span>
+    <h2>Admin login</h2>
+    <p>Sign in to update the school website.</p>
+    <form id="loginForm">
+      <div><label for="loginUser">Username</label><input type="text" id="loginUser" autocomplete="username" required></div>
+      <div><label for="loginPass">Password</label><input type="password" id="loginPass" autocomplete="current-password" required></div>
+      <div id="loginError" class="login-error" style="display:none"></div>
+      <button type="submit" class="btn" id="loginBtn">Sign in</button>
+      <button type="button" class="btn btn-soft" id="loginBack">Back to website</button>
+    </form>
+  </div>
+</div>
+
+<div id="adminView" class="admin-shell" style="display:none">
+  <div class="admin-bar">
+    <div class="brand"><span class="mark"><svg class="crest"><use href="#crest"/></svg></span><b>Website admin</b></div>
+    <nav>
+      <span id="adminUser" style="opacity:.8;font-size:13px;margin-right:8px"></span>
+      <button id="adminViewSite">View site</button>
+      <button id="adminLogout">Log out</button>
+    </nav>
+  </div>
+  <div class="admin-main">
+    <div class="tabs" id="adminTabs"></div>
+    <div id="adminPanes"></div>
+  </div>
+</div>
+
+<div id="modalRoot"></div>
+
+<script>
+/* =========================================================
+   CONFIG
+   ========================================================= */
+const API_URL = "https://script.google.com/macros/s/AKfycbw5mTeEYFoXHf5zggjBfW9rcFwPs2I7g_HNX9-3G43d7UK9wc81xOP6r6yq0Ht1MEUd3A/exec";
+
+const DEFAULT_STATS = [
+  ['2K+','Students'],
+  ['80+','Teachers & staff'],
+  ['25+','Years of service'],
+  ['98%','WAEC pass rate']
+];
+
+/* =========================================================
+   STATE & HELPERS
+   ========================================================= */
+const $ = id => document.getElementById(id);
+const state = {
+  token: sessionStorage.getItem('token') || '',
+  username: sessionStorage.getItem('username') || '',
+  role: sessionStorage.getItem('role') || '',
+  mustChange: sessionStorage.getItem('mustChange') === '1',
+  settings: {}, loaded: false,
+  slides: [], heroIndex: 0, heroTimer: null,
+  about: [], aboutIndex: 0, aboutTimer: null,
+  staff: [], gallery: [], admissions: [], content: [], links: [], pages: [],
+  lbIndex: 0, currentTab: 'settings',
+  admin: {}            // admin-side caches, keyed by resource
+};
+
+async function api(action, payload = {}) {
+  const body = { action, ...payload };
+  if (state.token) body.token = state.token;
+  const res = await fetch(API_URL, {
+    method: 'POST',
+    headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+    body: JSON.stringify(body),
+    redirect: 'follow'
+  });
+  const text = await res.text();
+  let data;
+  try { data = JSON.parse(text); }
+  catch (e) { throw new Error('Bad server response: ' + text.slice(0, 120)); }
+  if (data && data.error) {
+    const msg = String(data.error).toLowerCase();
+    if (state.token && (msg.includes('session') || msg.includes('token') || msg.includes('disabled'))) forceLogout();
+    throw new Error(data.error);
+  }
+  return data;
+}
+
+function toast(msg, type = 'info') {
+  const t = document.createElement('div');
+  t.className = 'toast toast-' + type;
+  t.textContent = msg;
+  $('toasts').appendChild(t);
+  setTimeout(() => t.remove(), 3800);
+}
+function esc(s) {
+  if (s === null || s === undefined) return '';
+  return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+const escAttr = esc;
+function cssUrl(u) {   // safe unquoted css url()
+  return 'url(' + String(u || '').replace(/["'()\\\s<>]/g, c => '%' + c.charCodeAt(0).toString(16).toUpperCase().padStart(2, '0')) + ')';
+}
+const bg = u => 'background-image:' + esc(cssUrl(u));
+function safeUrl(u) {
+  u = String(u || '').trim();
+  return /^(https?:|mailto:|tel:|\/|#)/i.test(u) ? u : (u ? 'https://' + u : '#');
+}
+function ic(name) { return `<svg class="i" aria-hidden="true"><use href="#i-${name}"/></svg>`; }
+function fmtDate(d) {
+  if (!d) return '';
+  const dt = new Date(d);
+  return isNaN(dt) ? '' : dt.toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' });
+}
+function shorten(s, n) { s = String(s || ''); return s.length > n ? s.slice(0, n) + '…' : s; }
+function toLocalInput(d) {
+  const dt = new Date(d);
+  if (isNaN(dt)) return '';
+  const p = n => String(n).padStart(2, '0');
+  return `${dt.getFullYear()}-${p(dt.getMonth()+1)}-${p(dt.getDate())}T${p(dt.getHours())}:${p(dt.getMinutes())}`;
+}
+function initials(name) {
+  return String(name || '').replace(/^(mr|mrs|miss|ms|dr|prof|engr|chief|pastor|rev|alhaji|alhaja)\.?\s+/i, '')
+    .split(/\s+/).filter(Boolean).slice(0, 2).map(w => w[0]).join('').toUpperCase() || 'GT';
+}
+function fileToBase64(file) {
+  return new Promise((res, rej) => {
+    const r = new FileReader();
+    r.onload = () => res(String(r.result).split(',')[1] || r.result);
+    r.onerror = rej;
+    r.readAsDataURL(file);
+  });
+}
+function telHref(p) { return 'tel:' + String(p).replace(/[^\d+]/g, ''); }
+function empty(title, text) { return `<div class="empty"><h3>${esc(title)}</h3>${text ? `<p>${esc(text)}</p>` : ''}</div>`; }
+
+/* scroll-reveal */
+let revealIO = null;
+function observeReveals() {
+  const els = document.querySelectorAll('.reveal:not(.in)');
+  if (!('IntersectionObserver' in window)) { els.forEach(e => e.classList.add('in')); return; }
+  if (!revealIO) revealIO = new IntersectionObserver(entries => {
+    entries.forEach(en => { if (en.isIntersecting) { en.target.classList.add('in'); revealIO.unobserve(en.target); } });
+  }, { threshold: .12, rootMargin: '0px 0px -40px 0px' });
+  els.forEach(e => revealIO.observe(e));
+}
+function revealify(container) {
+  container.querySelectorAll(':scope > *').forEach((el, i) => { el.classList.add('reveal'); el.style.transitionDelay = Math.min(i, 6) * 60 + 'ms'; });
+  observeReveals();
+}
+
+/* =========================================================
+   PUBLIC SITE — LOAD
+   ========================================================= */
+async function loadPublicSite() {
+  if (state.loaded) return;
+  state.loaded = true;
+  const jobs = [
+    api('settings').then(r => { state.settings = r || {}; applySettings(); renderFacts(); }),
+    api('public_slides').then(r => { state.slides = r || []; renderHero(); }),
+    api('public_about').then(r => { state.about = r || []; renderAbout(); }),
+    api('public_aboutschool').then(renderAboutSchool),
+    api('public_proprietor').then(renderProprietor),
+    api('public_staff').then(r => { state.staff = r || []; renderStaff(); }),
+    api('public_gallery').then(r => { state.gallery = r || []; renderGallery(); }),
+    api('public_admissions').then(r => { state.admissions = r || []; renderAdmissions(); }),
+    api('public_content').then(r => { state.content = r || []; renderNews(); }),
+    api('public_links').then(r => { state.links = r || []; renderPublicLinks(); }),
+    api('public_pages').then(r => { state.pages = r || []; renderDynamicPages(); })
+  ];
+  const results = await Promise.allSettled(jobs);
+  results.forEach(r => { if (r.status === 'rejected') console.warn(r.reason); });
+  observeReveals();
+  // make sure sections that failed to load don't stay as loading placeholders
+  if (!state.slides.length) renderHero();
+  if (!state.settings || !Object.keys(state.settings).length) renderFacts();
+  ['staffGrid','galleryGrid','newsGrid','publicLinks','admissionsList','aboutSchoolList','proprietorBox'].forEach(id => {
+    if ($(id).querySelector('.skel')) {
+      if (id === 'staffGrid') renderStaff(); else if (id === 'galleryGrid') renderGallery();
+      else if (id === 'newsGrid') renderNews(); else if (id === 'publicLinks') renderPublicLinks();
+      else if (id === 'admissionsList') renderAdmissions(); else if (id === 'aboutSchoolList') renderAboutSchool([]);
+      else renderProprietor([]);
+    }
+  });
+  // restore deep-link position after content has settled
+  if (location.hash && !location.hash.startsWith('#page/')) {
+    const el = document.getElementById(location.hash.slice(1));
+    if (el) setTimeout(() => el.scrollIntoView(), 50);
+  }
+}
+
+function applySettings() {
+  const s = state.settings || {};
+  if (s.school_name) {
+    $('brandName').textContent = s.school_name;
+    $('footName').textContent = s.school_name;
+    document.title = s.school_name + (s.tagline ? ' — ' + s.tagline : '');
+  }
+  if (s.tagline) $('brandTag').textContent = s.tagline;
+  if (s.logo_url) {
+    ['brandMark','footMark','loginMark'].forEach(id => $(id).innerHTML = `<img src="${escAttr(s.logo_url)}" alt="School logo">`);
+  }
+  if (s.phone) {
+    const href = telHref(s.phone);
+    $('tPhone').textContent = s.phone; $('tPhone').href = href;
+    $('fPhone').textContent = s.phone; $('fPhoneLink').href = href;
+    $('admCall').href = href; $('mCall').href = href;
+  }
+  if (s.email) {
+    const href = 'mailto:' + s.email;
+    $('tEmail').textContent = s.email; $('tEmail').href = href;
+    $('fEmail').textContent = s.email; $('fEmailLink').href = href;
+    $('admMail').href = href;
+  }
+  if (s.address) { $('tAddress').textContent = s.address; $('fAddress').textContent = s.address; }
+  if (s.about_short) $('footerAbout').textContent = s.about_short;
+  if (s.motto) { $('aboutBadgeTitle').textContent = 'Our motto'; $('aboutBadgeText').textContent = s.motto; }
+  if (s.session) document.querySelectorAll('.js-session').forEach(e => e.textContent = s.session);
+  $('year').textContent = new Date().getFullYear();
+}
+
+function renderFacts() {
+  const s = state.settings || {};
+  const vals = [s.stat_students, s.stat_staff, s.stat_years, s.stat_waec];
+  $('factsCard').innerHTML = DEFAULT_STATS.map((d, i) =>
+    `<div class="fact"><b>${esc(vals[i] || d[0])}</b><span>${esc(d[1])}</span></div>`).join('');
+}
+
+/* =========================================================
+   HERO
+   ========================================================= */
+function renderHero() {
+  const wrap = $('heroSlides'), dots = $('heroDots');
+  const s = state.settings || {};
+  const fallbackImg = 'https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=1600';
+  const defaultSub = s.about_short || 'A caring, co-educational secondary school in Ado Ekiti, helping children grow in knowledge, character and confidence.';
+  const slides = state.slides.length ? state.slides
+    : [{ title: 'Raising confident, well-mannered and brilliant children', subtitle: 'Welcome to Greater Tomorrow', image_url: fallbackImg }];
+  wrap.innerHTML = slides.map((sl, i) => `
+    <div class="hero-slide ${i === 0 ? 'active' : ''}" style="${bg(sl.image_url || fallbackImg)}">
+      <div class="hero-content"><div class="hero-inner">
+        ${sl.subtitle ? `<div class="hero-eyebrow">${esc(sl.subtitle)}</div>` : ''}
+        <h1>${esc(sl.title || 'Welcome to Greater Tomorrow')}</h1>
+        <p class="sub">${esc(defaultSub)}</p>
+        <div class="hero-actions">
+          <a class="btn btn-light" href="#admissions">Apply for admission ${ic('arrow')}</a>
+          <a class="btn btn-line" href="#about">Get to know us</a>
+        </div>
+      </div></div>
+    </div>`).join('');
+  dots.innerHTML = slides.length > 1
+    ? slides.map((_, i) => `<button class="hero-dot ${i === 0 ? 'active' : ''}" data-i="${i}" aria-label="Go to slide ${i+1}"></button>`).join('') : '';
+  $('heroPrev').style.display = $('heroNext').style.display = slides.length > 1 ? '' : 'none';
+  state.heroIndex = 0;
+  startHeroAuto();
+}
+function heroGo(i) {
+  const slides = document.querySelectorAll('.hero-slide');
+  const dots = document.querySelectorAll('.hero-dot');
+  if (!slides.length) return;
+  state.heroIndex = (i + slides.length) % slides.length;
+  slides.forEach((s, idx) => s.classList.toggle('active', idx === state.heroIndex));
+  dots.forEach((d, idx) => d.classList.toggle('active', idx === state.heroIndex));
+  startHeroAuto();
+}
+function startHeroAuto() {
+  clearInterval(state.heroTimer);
+  if (document.querySelectorAll('.hero-slide').length > 1)
+    state.heroTimer = setInterval(() => heroGo(state.heroIndex + 1), 6500);
+}
+
+/* =========================================================
+   ABOUT / STORY / PROPRIETOR
+   ========================================================= */
+function renderAbout() {
+  if (!state.about.length) return;
+  const main = state.about[0];
+  if (main.heading) $('aboutHeading').textContent = main.heading;
+  if (main.body) { $('aboutLead').textContent = main.body; $('aboutBody').textContent = ''; }
+  const visual = $('aboutVisual');
+  const items = state.about.filter(a => a.image_url);
+  if (!items.length) return;
+  visual.querySelectorAll('.about-img').forEach(el => el.remove());
+  const badge = visual.querySelector('.about-badge');
+  items.forEach((item, i) => {
+    const div = document.createElement('div');
+    div.className = 'about-img' + (i === 0 ? ' active' : '');
+    div.style.backgroundImage = cssUrl(item.image_url);
+    if (item.heading) div.dataset.caption = item.heading;
+    visual.insertBefore(div, badge);
+  });
+  state.aboutIndex = 0;
+  clearInterval(state.aboutTimer);
+  if (items.length > 1) state.aboutTimer = setInterval(() => {
+    const imgs = visual.querySelectorAll('.about-img');
+    state.aboutIndex = (state.aboutIndex + 1) % imgs.length;
+    imgs.forEach((im, i) => im.classList.toggle('active', i === state.aboutIndex));
+    const cap = imgs[state.aboutIndex].dataset.caption;
+    if (cap) { $('aboutBadgeTitle').textContent = 'Our story'; $('aboutBadgeText').textContent = cap; }
+  }, 5500);
+}
+function renderAboutSchool(rows) {
+  const el = $('aboutSchoolList');
+  rows = rows || [];
+  if (!rows.length) { el.innerHTML = empty('Our story is coming soon'); return; }
+  el.innerHTML = rows.map(r => `
+    <div class="story ${r.image_url ? 'has-img' : ''}">
+      ${r.image_url ? `<img class="story-img" loading="lazy" src="${escAttr(r.image_url)}" alt="${escAttr(r.heading || '')}">` : ''}
+      <div><h3>${esc(r.heading || '')}</h3><p>${esc(r.body || '')}</p></div>
+    </div>`).join('');
+  revealify(el);
+}
+function renderProprietor(rows) {
+  const el = $('proprietorBox');
+  rows = rows || [];
+  if (!rows.length) { el.innerHTML = empty("The Proprietor's message is coming soon"); return; }
+  const p = rows[0];
+  el.innerHTML = `
+    <div class="prop reveal">
+      <div class="prop-photo">${p.image_url
+        ? `<img loading="lazy" src="${escAttr(p.image_url)}" alt="${escAttr(p.name || 'Proprietor')}">`
+        : `<div class="initials">${esc(initials(p.name))}</div>`}</div>
+      <div class="prop-body">
+        <svg class="q" viewBox="0 0 24 24"><use href="#i-quote"/></svg>
+        <p>${esc(p.message || '')}</p>
+        <div class="prop-sign"><b>${esc(p.name || '')}</b><span>${esc(p.title || 'Proprietor')}</span></div>
+      </div>
+    </div>`;
+  observeReveals();
+}
+
+/* =========================================================
+   STAFF / GALLERY / ADMISSIONS / NEWS / LINKS
+   ========================================================= */
+function renderStaff() {
+  const el = $('staffGrid');
+  if (!state.staff.length) { el.innerHTML = empty('Staff profiles are coming soon'); return; }
+  el.innerHTML = state.staff.map(s => `
+    <article class="staff-card">
+      <div class="staff-photo" ${s.image_url ? `style="${bg(s.image_url)}" role="img" aria-label="${escAttr(s.name)}"` : ''}>${s.image_url ? '' : `<span class="initials">${esc(initials(s.name))}</span>`}</div>
+      <div class="staff-info">
+        <h4>${esc(s.name)}</h4>
+        <div class="role">${esc(s.role || '')}</div>
+        ${s.bio ? `<div class="bio">${esc(s.bio)}</div>` : ''}
+      </div>
+    </article>`).join('');
+  revealify(el);
+}
+function renderGallery() {
+  const el = $('galleryGrid');
+  if (!state.gallery.length) { el.innerHTML = empty('Photos are coming soon'); return; }
+  el.innerHTML = state.gallery.map((g, i) => `
+    <button class="g-item" data-i="${i}" style="${bg(g.image_url)}" aria-label="${escAttr(g.title ? 'View photo: ' + g.title : 'View photo ' + (i+1))}">
+      ${g.title ? `<span class="g-cap">${esc(g.title)}</span>` : ''}
+    </button>`).join('');
+}
+function openLightbox(i) {
+  const n = state.gallery.length; if (!n) return;
+  closeLightbox();
+  state.lbIndex = (i + n) % n;
+  const g = state.gallery[state.lbIndex];
+  const el = document.createElement('div');
+  el.className = 'lightbox';
+  el.setAttribute('role', 'dialog');
+  el.innerHTML = `
+    <button class="lb-btn lb-close" aria-label="Close">×</button>
+    ${n > 1 ? `<button class="lb-btn lb-prev" aria-label="Previous">${ic('arrow')}</button><button class="lb-btn lb-next" aria-label="Next">${ic('arrow')}</button>` : ''}
+    <img src="${escAttr(g.image_url)}" alt="${escAttr(g.title || '')}">
+    <div class="cap">${esc(g.title || '')}</div>`;
+  el.addEventListener('click', e => {
+    if (e.target === el || e.target.closest('.lb-close')) closeLightbox();
+    else if (e.target.closest('.lb-prev')) openLightbox(state.lbIndex - 1);
+    else if (e.target.closest('.lb-next')) openLightbox(state.lbIndex + 1);
+  });
+  document.body.appendChild(el);
+}
+function closeLightbox() { document.querySelectorAll('.lightbox').forEach(e => e.remove()); }
+
+function renderAdmissions() {
+  const el = $('admissionsList');
+  const steps = state.admissions.length ? state.admissions : [
+    { title: 'Obtain the application form', body: 'Visit the school office to collect a form. The office is open Monday to Friday, 8:00 AM – 3:00 PM.' },
+    { title: 'Submit the completed form', body: 'Return it with a birth certificate, the last school report card and passport photographs.' },
+    { title: 'Entrance examination', body: 'A written test covering English, Mathematics and General Knowledge.' },
+    { title: 'Interview and offer', body: 'Successful candidates are invited for a short interview, after which offer letters are issued.' },
+    { title: 'Acceptance and enrolment', body: 'Pay the acceptance fee, complete registration and receive your welcome pack.' }
+  ];
+  el.innerHTML = steps.map((a, i) => `
+    <div class="step"><div class="n">${i + 1}</div><h3>${esc(a.title)}</h3><p>${esc(a.body)}</p></div>`).join('');
+  revealify(el);
+}
+function renderNews() {
+  const el = $('newsGrid');
+  if (!state.content.length) { el.innerHTML = empty('No announcements yet', 'Check back soon for school news.'); return; }
+  el.innerHTML = state.content.slice(0, 9).map(p => `
+    <button class="post" data-id="${escAttr(p.id)}">
+      ${p.image_url ? `<div class="post-image" style="${bg(p.image_url)}"></div>` : ''}
+      <div class="post-body">
+        ${p.category ? `<span class="post-tag">${esc(p.category)}</span>` : ''}
+        <h3>${esc(p.title)}</h3>
+        <p>${esc((p.body || '').replace(/\s+/g, ' ').slice(0, 200))}</p>
+        <div class="post-meta"><span>${esc(fmtDate(p.created_at))}${p.pinned ? ' · Pinned' : ''}</span><span class="more">Read ${ic('arrow')}</span></div>
+      </div>
+    </button>`).join('');
+  revealify(el);
+}
+function openPost(id) {
+  const p = state.content.find(x => String(x.id) === String(id));
+  if (!p) return;
+  modal(p.title, `<div class="post-full">
+      ${p.image_url ? `<img src="${escAttr(p.image_url)}" alt="">` : ''}
+      <div class="meta">${esc([p.category, fmtDate(p.created_at)].filter(Boolean).join(' · '))}</div>
+      <p>${esc(p.body || '')}</p></div>`,
+    [{ label: 'Close', cls: 'btn btn-soft', onClick: closeModal }], 'wide');
+}
+function renderPublicLinks() {
+  const el = $('publicLinks');
+  if (!state.links.length) { el.innerHTML = empty('No links yet'); return; }
+  el.innerHTML = state.links.map(l => `
+    <a class="link-card" href="${escAttr(safeUrl(l.url))}" target="_blank" rel="noopener">
+      <span class="ico">${ic('ext')}</span>
+      <span><strong>${esc(l.label)}</strong>${l.description ? `<span class="d">${esc(l.description)}</span>` : ''}</span>
+    </a>`).join('');
+  revealify(el);
+}
+
+/* =========================================================
+   CUSTOM PAGES & ROUTING
+   ========================================================= */
+function renderDynamicPages() {
+  const navLinks = $('navLinks');
+  const menuPages = state.pages.filter(p => String(p.in_menu) === 'true' || p.in_menu === true);
+  const contactLink = navLinks.querySelector('a[href="#contact"]');
+  navLinks.querySelectorAll('a[data-page]').forEach(a => a.remove());
+  menuPages.forEach(p => {
+    const a = document.createElement('a');
+    a.href = '#page/' + p.slug; a.dataset.page = p.slug; a.textContent = p.title;
+    navLinks.insertBefore(a, contactLink);
+  });
+  $('mobileDynamicPages').innerHTML = menuPages.map(p => `<a href="#page/${escAttr(p.slug)}">${esc(p.title)}</a>`).join('');
+  $('footerPages').innerHTML = menuPages.map(p => `<li><a href="#page/${escAttr(p.slug)}">${esc(p.title)}</a></li>`).join('') +
+    `<li><a href="#about">About us</a></li><li><a href="#academics">Academics</a></li><li><a href="#admissions">Admissions</a></li><li><a href="#news">News &amp; events</a></li>`;
+}
+async function showPage(slug) {
+  $('homeView').style.display = 'none';
+  $('pageView').style.display = 'block';
+  const c = $('pageViewContent');
+  c.innerHTML = '<div class="skel" style="min-height:260px"></div>';
+  window.scrollTo(0, 0);
+  try {
+    const page = await api('public_page', { slug });
+    document.title = page.title + ' — ' + (state.settings.school_name || 'Greater Tomorrow Model Schools');
+    c.innerHTML = `
+      <a class="back" href="#home">${ic('arrow')} Back to home</a>
+      <h1>${esc(page.title)}</h1>
+      <div class="page-sub">${esc(state.settings.school_name || 'Greater Tomorrow Model Schools')}</div>
+      ${page.sections && page.sections.length ? page.sections.map(s => `
+        <div class="page-section ${s.image_url ? 'has-img' : ''}">
+          ${s.image_url ? `<img src="${escAttr(s.image_url)}" alt="${escAttr(s.heading || '')}">` : ''}
+          <div>${s.heading ? `<h2>${esc(s.heading)}</h2>` : ''}<p>${esc(s.body || '')}</p></div>
+        </div>`).join('') : empty('This page has no content yet')}`;
+  } catch (err) {
+    c.innerHTML = `<a class="back" href="#home">${ic('arrow')} Back to home</a>` + empty('Page not found', err.message);
+  }
+}
+function handleRouting() {
+  const hash = location.hash;
+  const wasPage = $('pageView').style.display === 'block';
+  document.querySelectorAll('#navLinks a[data-page]').forEach(a => a.classList.toggle('active', hash === '#page/' + a.dataset.page));
+  if (hash.startsWith('#page/')) { showPage(decodeURIComponent(hash.slice(6))); return; }
+  $('pageView').style.display = 'none';
+  $('homeView').style.display = 'block';
+  if (state.settings.school_name) document.title = state.settings.school_name + (state.settings.tagline ? ' — ' + state.settings.tagline : '');
+  if (wasPage) {
+    const el = hash.length > 1 ? document.getElementById(hash.slice(1)) : null;
+    setTimeout(() => el ? el.scrollIntoView() : window.scrollTo(0, 0), 20);
+  }
+}
+window.addEventListener('hashchange', () => { closeMenu(); handleRouting(); });
+
+/* =========================================================
+   VIEWS
+   ========================================================= */
+function showPublic() {
+  $('publicSite').style.display = 'block';
+  $('loginView').style.display = 'none';
+  $('adminView').style.display = 'none';
+  document.body.classList.add('public-on');
+  handleRouting();
+  loadPublicSite();
+  closeMenu();
+}
+function showLogin() {
+  if (state.token) return showAdmin();
+  $('publicSite').style.display = 'none';
+  $('loginView').style.display = 'flex';
+  $('adminView').style.display = 'none';
+  document.body.classList.remove('public-on');
+  $('loginError').style.display = 'none';
+  setTimeout(() => $('loginUser').focus(), 80);
+}
+function showAdmin() {
+  if (!state.token) return showLogin();
+  $('publicSite').style.display = 'none';
+  $('loginView').style.display = 'none';
+  $('adminView').style.display = 'block';
+  document.body.classList.remove('public-on');
+  $('adminUser').textContent = '@' + state.username + (state.role === 'super_admin' ? ' (super admin)' : '');
+  $('tabUsers').style.display = state.role === 'super_admin' ? '' : 'none';
+  switchTab(state.mustChange ? 'account' : 'settings');
+  if (state.mustChange) toast('Please change your password.', 'info');
+}
+function toggleMenu() {
+  const m = $('mobileMenu'); const open = m.classList.toggle('open');
+  $('menuToggle').setAttribute('aria-expanded', open);
+}
+function closeMenu() { $('mobileMenu').classList.remove('open'); $('menuToggle').setAttribute('aria-expanded', 'false'); }
+
+/* =========================================================
+   LOGIN / LOGOUT / PASSWORD
+   ========================================================= */
+async function doLogin(e) {
+  e.preventDefault();
+  const btn = $('loginBtn'), errEl = $('loginError');
+  errEl.style.display = 'none';
+  btn.disabled = true; btn.textContent = 'Signing in…';
+  try {
+    const res = await api('login', { username: $('loginUser').value, password: $('loginPass').value });
+    state.token = res.token; state.username = res.username; state.role = res.role;
+    state.mustChange = !!res.must_change_password;
+    sessionStorage.setItem('token', state.token);
+    sessionStorage.setItem('username', state.username);
+    sessionStorage.setItem('role', state.role);
+    sessionStorage.setItem('mustChange', state.mustChange ? '1' : '0');
+    $('loginPass').value = '';
+    toast('Welcome, ' + state.username, 'success');
+    showAdmin();
+  } catch (err) {
+    errEl.textContent = err.message; errEl.style.display = 'block';
+  } finally { btn.disabled = false; btn.textContent = 'Sign in'; }
+}
+function logout() { api('logout', {}).catch(() => {}); forceLogout(); }
+function forceLogout() {
+  state.token = ''; state.username = ''; state.role = ''; state.mustChange = false;
+  sessionStorage.clear();
+  showPublic();
+  toast('Logged out', 'info');
+}
+async function doChangePassword(e) {
+  e.preventDefault();
+  const oldPw = $('cpOld').value, newPw = $('cpNew').value, conf = $('cpConfirm').value;
+  if (newPw !== conf) return toast('Passwords do not match', 'error');
+  if (newPw.length < 8) return toast('Password must be 8+ characters', 'error');
+  try {
+    await api('change_password', { old_password: oldPw, new_password: newPw });
+    ['cpOld','cpNew','cpConfirm'].forEach(id => $(id).value = '');
+    state.mustChange = false; sessionStorage.setItem('mustChange', '0');
+    toast('Password updated', 'success');
+  } catch (err) { toast(err.message, 'error'); }
+}
+
+/* =========================================================
+   MODAL + IMAGE UPLOAD
+   ========================================================= */
+function modal(title, bodyHtml, buttons, size) {
+  closeModal();
+  const el = document.createElement('div');
+  el.className = 'modal-backdrop';
+  el.addEventListener('mousedown', e => { if (e.target === el) closeModal(); });
+  el.innerHTML = `
+    <div class="modal ${size || ''}" role="dialog" aria-modal="true">
+      <div class="modal-header"><h2>${esc(title)}</h2><button class="close-x" aria-label="Close">×</button></div>
+      <div class="modal-body">${bodyHtml}</div>
+      <div class="modal-footer">${buttons.map((b, i) => `<button class="${b.cls}" data-idx="${i}">${esc(b.label)}</button>`).join('')}</div>
+    </div>`;
+  el.querySelector('.close-x').onclick = closeModal;
+  el.querySelectorAll('[data-idx]').forEach(b => b.onclick = buttons[Number(b.dataset.idx)].onClick);
+  el.querySelectorAll('[data-pick]').forEach(z => {
+    const id = z.dataset.pick, input = el.querySelector('#' + id + '_file');
+    z.onclick = () => input.click();
+    input.onchange = () => uploadImage(id, input.files[0]);
+  });
+  $('modalRoot').appendChild(el);
+  document.body.style.overflow = 'hidden';
+  return el;
+}
+function closeModal() { $('modalRoot').innerHTML = ''; document.body.style.overflow = ''; }
+
+function imageField(id, label, val) {
+  return `<div><label>${esc(label)}</label>
+    <div class="upload-zone" data-pick="${id}"><span id="${id}_st">${val ? 'Replace photo' : 'Choose a photo'}</span><small>JPG or PNG, up to 5 MB</small></div>
+    <input type="file" id="${id}_file" accept="image/*" hidden>
+    <img id="${id}_pv" class="img-preview" alt="" ${val ? '' : 'hidden'} src="${escAttr(val || '')}">
+    <input type="hidden" id="${id}" value="${escAttr(val || '')}"></div>`;
+}
+async function prepImage(file) {
+  const plain = { blob: file, mime: file.type, name: file.name };
+  if (!/^image\/(jpeg|png|webp)$/.test(file.type) || file.size < 400 * 1024) return plain;
+  try {
+    const bmp = await createImageBitmap(file);
+    const sc = Math.min(1, 1600 / Math.max(bmp.width, bmp.height));
+    const c = document.createElement('canvas');
+    c.width = Math.round(bmp.width * sc); c.height = Math.round(bmp.height * sc);
+    const ctx = c.getContext('2d');
+    ctx.fillStyle = '#fff'; ctx.fillRect(0, 0, c.width, c.height);
+    ctx.drawImage(bmp, 0, 0, c.width, c.height);
+    const blob = await new Promise(r => c.toBlob(r, 'image/jpeg', .86));
+    if (blob && blob.size < file.size) return { blob, mime: 'image/jpeg', name: file.name.replace(/\.\w+$/, '') + '.jpg' };
+  } catch (e) { /* fall back to original */ }
+  return plain;
+}
+async function uploadImage(id, file) {
+  if (!file) return;
+  const st = $(id + '_st');
+  st.textContent = 'Uploading…';
+  try {
+    const p = await prepImage(file);
+    if (p.blob.size > 5 * 1024 * 1024) throw new Error('Image must be under 5 MB');
+    const b64 = await fileToBase64(p.blob);
+    const res = await api('upload_image', { base64: b64, filename: p.name, mime: p.mime });
+    $(id).value = res.url;
+    const pv = $(id + '_pv'); pv.src = res.url; pv.hidden = false;
+    st.textContent = 'Uploaded. Click to replace.';
+    toast('Image uploaded', 'success');
+  } catch (err) {
+    st.textContent = 'Choose a photo';
+    toast('Upload failed: ' + err.message, 'error');
+  }
+}
+
+/* =========================================================
+   ADMIN — TABS
+   ========================================================= */
+const ADMIN_TABS = [
+  ['settings','Settings'],['slides','Hero slides'],['about','About us'],['aboutschool','About the school'],
+  ['proprietor','Proprietor'],['staff','Staff'],['gallery','Gallery'],['admissions','Admissions'],
+  ['pages','Pages'],['content','News'],['links','Quick links'],['users','Users'],['account','Account']
+];
+function buildAdminTabs() {
+  $('adminTabs').innerHTML = ADMIN_TABS.map(([k, l]) =>
+    `<button class="tab ${k === 'settings' ? 'active' : ''}" data-tab="${k}" ${k === 'users' ? 'id="tabUsers" style="display:none"' : ''}>${l}</button>`).join('');
+  $('adminTabs').addEventListener('click', e => { const b = e.target.closest('.tab'); if (b) switchTab(b.dataset.tab); });
+}
+function switchTab(name) {
+  state.currentTab = name;
+  document.querySelectorAll('#adminTabs .tab').forEach(t => t.classList.toggle('active', t.dataset.tab === name));
+  const pane = $('adminPanes');
+  if (RES[name]) return loadResource(name, pane);
+  ({ settings: renderSettingsPane, pages: loadPagesPane, content: loadContentPane,
+     users: loadUsersPane, account: renderAccountPane })[name](pane);
+}
+function pageHead(title, desc, actionHtml) {
+  return `<div class="page-head"><div><h1>${esc(title)}</h1><p>${esc(desc)}</p></div>${actionHtml || ''}</div>`;
+}
+const SKEL_TABLE = '<div class="table-wrap"><div class="skel" style="min-height:200px"></div></div>';
+function errBox(wrap, err) { wrap.innerHTML = empty('Something went wrong', err.message); }
+
+/* ---------- settings ---------- */
+async function renderSettingsPane(pane) {
+  pane.innerHTML = pageHead('Site settings', 'School name, contact details, logo and homepage figures.') + SKEL_TABLE;
+  try { const s = await api('settings'); if (s) state.settings = s; } catch (e) { /* use cached */ }
+  const s = state.settings || {};
+  pane.innerHTML = pageHead('Site settings', 'School name, contact details, logo and homepage figures.') + `
+    <div class="panel"><form id="settingsForm">
+      <div><label>School name</label><input id="sName" value="${escAttr(s.school_name || '')}" required></div>
+      <div class="form-row">
+        <div><label>Tagline / location</label><input id="sTag" value="${escAttr(s.tagline || '')}"></div>
+        <div><label>Motto</label><input id="sMotto" value="${escAttr(s.motto || '')}"></div>
+      </div>
+      <div><label>Short description (shown in hero and footer)</label><textarea id="sAbout" rows="3">${esc(s.about_short || '')}</textarea></div>
+      ${imageField('sLogo', 'School logo (optional — replaces the default crest)', s.logo_url)}
+      <h3>Contact</h3>
+      <div class="form-row">
+        <div><label>Phone</label><input id="sPhone" value="${escAttr(s.phone || '')}" placeholder="+234 …"></div>
+        <div><label>Email</label><input id="sEmail" value="${escAttr(s.email || '')}"></div>
+      </div>
+      <div><label>Address</label><input id="sAddr" value="${escAttr(s.address || '')}"></div>
+      <h3>Admissions & homepage figures</h3>
+      <div><label>Admission session</label><input id="sSession" value="${escAttr(s.session || '')}" placeholder="2026/2027"></div>
+      <div class="form-row">
+        <div><label>Students</label><input id="sStu" value="${escAttr(s.stat_students || '')}" placeholder="2K+"></div>
+        <div><label>Teachers &amp; staff</label><input id="sStf" value="${escAttr(s.stat_staff || '')}" placeholder="80+"></div>
+        <div><label>Years of service</label><input id="sYrs" value="${escAttr(s.stat_years || '')}" placeholder="25+"></div>
+        <div><label>WAEC pass rate</label><input id="sWaec" value="${escAttr(s.stat_waec || '')}" placeholder="98%"></div>
+      </div>
+      <p class="hint">Please make sure these figures are accurate before publishing. They appear prominently on the homepage.</p>
+      <button type="submit" class="btn" style="align-self:flex-start">Save settings</button>
+    </form></div>`;
+  pane.querySelectorAll('[data-pick]').forEach(z => {
+    const id = z.dataset.pick, input = $(id + '_file');
+    z.onclick = () => input.click(); input.onchange = () => uploadImage(id, input.files[0]);
+  });
+  $('settingsForm').onsubmit = saveSettings;
+}
+async function saveSettings(e) {
+  e.preventDefault();
+  const v = id => $(id).value.trim();
+  const settings = {
+    school_name: v('sName'), tagline: v('sTag'), motto: v('sMotto'), about_short: v('sAbout'),
+    phone: v('sPhone'), email: v('sEmail'), address: v('sAddr'), logo_url: $('sLogo').value,
+    session: v('sSession'), stat_students: v('sStu'), stat_staff: v('sStf'), stat_years: v('sYrs'), stat_waec: v('sWaec')
+  };
+  try {
+    await api('save_settings', { settings });
+    state.settings = { ...state.settings, ...settings };
+    applySettings(); renderFacts(); renderHero();
+    toast('Settings saved', 'success');
+  } catch (err) { toast(err.message, 'error'); }
+}
+
+/* ---------- generic resources ---------- */
+const RES = {
+  slides: { title: 'Hero slides', desc: 'Large rotating photos at the top of the homepage.', single: 'slide',
+    list: 'list_slides', save: 'save_slide', del: 'delete_slide', order: true, active: 'select',
+    cols: [['image_url','Image','img'],['title','Title','strong'],['subtitle','Subtitle'],['sort_order','Order'],['active','Status','bool']],
+    fields: [{ k:'title', l:'Title' },{ k:'subtitle', l:'Small heading above title' },{ k:'image_url', l:'Photo', t:'image' }],
+    none: 'No slides yet. Add one to replace the default welcome banner.' },
+  about: { title: 'About section', desc: 'Lead text and rotating photos for "About us". The first item sets the heading and text; every item with a photo rotates.', single: 'item',
+    list: 'list_about', save: 'save_about', del: 'delete_about', order: true, active: 'select',
+    cols: [['image_url','Image','img'],['heading','Heading','strong'],['body','Text'],['sort_order','Order'],['active','Status','bool']],
+    fields: [{ k:'heading', l:'Heading' },{ k:'body', l:'Text', t:'textarea', rows:5 },{ k:'image_url', l:'Photo', t:'image' }],
+    none: 'Nothing here yet. Add at least one item.' },
+  aboutschool: { title: 'About the school', desc: 'History, vision, mission and values, each shown as its own block.', single: 'block',
+    list: 'list_aboutschool', save: 'save_aboutschool', del: 'delete_aboutschool', order: true, active: 'select',
+    cols: [['image_url','Image','img'],['heading','Heading','strong'],['body','Text'],['sort_order','Order'],['active','Status','bool']],
+    fields: [{ k:'heading', l:'Heading', ph:'e.g. Our vision' },{ k:'body', l:'Text', t:'textarea', rows:5 },{ k:'image_url', l:'Photo (optional)', t:'image' }],
+    none: 'No blocks yet. Add History, Vision, Mission and so on.' },
+  proprietor: { title: "Proprietor's message", desc: 'Only the first active message is shown on the website.', single: 'message',
+    list: 'list_proprietor', save: 'save_proprietor', del: 'delete_proprietor', order: true, active: 'select',
+    cols: [['image_url','Photo','img'],['name','Name','strong'],['title','Title'],['active','Status','bool']],
+    fields: [{ k:'name', l:'Name', req:true },{ k:'title', l:'Title', def:'Proprietor' },{ k:'message', l:'Message', t:'textarea', rows:7, req:true },{ k:'image_url', l:'Photo', t:'image' }],
+    none: "No message yet. Add the Proprietor's welcome message." },
+  staff: { title: 'Staff', desc: 'Teacher and administrator profiles.', single: 'staff member',
+    list: 'list_staff', save: 'save_staff', del: 'delete_staff', order: true, active: 'select',
+    cols: [['image_url','Photo','img'],['name','Name','strong'],['role','Role'],['sort_order','Order']],
+    fields: [{ k:'name', l:'Name', req:true },{ k:'role', l:'Role / title', ph:'e.g. Principal, Mathematics Teacher' },{ k:'bio', l:'Short bio', t:'textarea', rows:3 },{ k:'image_url', l:'Photo', t:'image' }],
+    none: 'No staff yet. Add teachers and administrators here.' },
+  gallery: { title: 'Gallery', desc: 'Photos shown in the Gallery section.', single: 'photo',
+    list: 'list_gallery', save: 'save_gallery', del: 'delete_gallery', order: true, active: 'hidden',
+    cols: [['image_url','Photo','img'],['title','Caption','strong'],['sort_order','Order']],
+    fields: [{ k:'title', l:'Caption (optional)' },{ k:'image_url', l:'Photo', t:'image', req:true }],
+    none: 'No photos yet. Upload pictures of the school, events and students.' },
+  admissions: { title: 'Admissions', desc: 'Steps shown in the Admissions section.', single: 'step',
+    list: 'list_admissions', save: 'save_admission', del: 'delete_admission', order: true, active: 'hidden',
+    cols: [['title','Title','strong'],['body','Details'],['sort_order','Order']],
+    fields: [{ k:'title', l:'Title', req:true },{ k:'body', l:'Details', t:'textarea', rows:4 }],
+    none: 'Using the default steps. Add steps here to replace them.' },
+  links: { title: 'Quick links', desc: 'External links such as the result portal.', single: 'link',
+    list: 'list_links', save: 'save_link', del: 'delete_link', order: true, active: 'none',
+    cols: [['label','Label','strong'],['url','Address','link'],['sort_order','Order']],
+    fields: [{ k:'label', l:'Label', req:true },{ k:'url', l:'Web address', req:true, ph:'https://…' },{ k:'description', l:'Short description' }],
+    none: 'No links yet. Add the result portal or other resources.' }
+};
+function cell(v, type) {
+  if (type === 'img') return v ? `<img class="thumb" loading="lazy" src="${escAttr(v)}" alt="">` : '<span class="thumb"></span>';
+  if (type === 'strong') return `<strong>${esc(v || '')}</strong>`;
+  if (type === 'bool') return String(v) !== 'false' ? '<span class="pill ok">Visible</span>' : '<span class="pill off">Hidden</span>';
+  if (type === 'link') return v ? `<a href="${escAttr(safeUrl(v))}" target="_blank" rel="noopener">${esc(shorten(v, 44))}</a>` : '—';
+  return v === undefined || v === null || v === '' ? '—' : esc(shorten(v, 70));
+}
+async function loadResource(key, pane) {
+  const R = RES[key];
+  pane.innerHTML = pageHead(R.title, R.desc, `<button class="btn" id="newBtn">Add ${esc(R.single)}</button>`) + '<div id="resWrap">' + SKEL_TABLE + '</div>';
+  $('newBtn').onclick = () => openResEditor(key);
+  const wrap = $('resWrap');
+  try {
+    const rows = await api(R.list);
+    state.admin[key] = rows || [];
+    if (!rows.length) { wrap.innerHTML = '<div class="table-wrap">' + empty('Nothing here yet', R.none) + '</div>'; return; }
+    wrap.innerHTML = `<div class="table-wrap"><table><thead><tr>${R.cols.map(c => `<th>${c[1]}</th>`).join('')}<th>Actions</th></tr></thead><tbody>
+      ${rows.map(r => `<tr>${R.cols.map(c => `<td>${cell(r[c[0]], c[2])}</td>`).join('')}
+        <td><div class="row-actions">
+          <button class="btn btn-sm btn-soft" data-edit="${escAttr(r.id)}">Edit</button>
+          <button class="btn btn-sm btn-danger" data-del="${escAttr(r.id)}">Delete</button>
+        </div></td></tr>`).join('')}</tbody></table></div>`;
+    wrap.onclick = e => {
+      const ed = e.target.closest('[data-edit]'), dl = e.target.closest('[data-del]');
+      if (ed) openResEditor(key, ed.dataset.edit);
+      if (dl) deleteResource(key, dl.dataset.del);
+    };
+  } catch (err) { errBox(wrap, err); }
+}
+function openResEditor(key, id) {
+  const R = RES[key];
+  const ex = id ? (state.admin[key] || []).find(x => String(x.id) === String(id)) : null;
+  const val = f => ex ? (ex[f.k] ?? '') : (f.def || '');
+  const fieldsHtml = R.fields.map(f => {
+    if (f.t === 'image') return imageField('f_' + f.k, f.l, val(f));
+    if (f.t === 'textarea') return `<div><label>${esc(f.l)}</label><textarea id="f_${f.k}" rows="${f.rows || 4}">${esc(val(f))}</textarea></div>`;
+    return `<div><label>${esc(f.l)}</label><input id="f_${f.k}" value="${escAttr(val(f))}" ${f.ph ? `placeholder="${escAttr(f.ph)}"` : ''}></div>`;
+  }).join('');
+  const tail = `<div class="form-row">
+      ${R.order ? `<div><label>Display order</label><input type="number" id="f_sort_order" value="${escAttr(ex?.sort_order || 0)}"><p class="hint">Smaller numbers appear first.</p></div>` : ''}
+      ${R.active === 'select' ? `<div><label>Visible on website</label><select id="f_active">
+        <option value="true"${!ex || String(ex.active) !== 'false' ? ' selected' : ''}>Yes</option>
+        <option value="false"${ex && String(ex.active) === 'false' ? ' selected' : ''}>No (hidden)</option></select></div>` : ''}
+    </div>`;
+  modal(ex ? 'Edit ' + R.single : 'Add ' + R.single, fieldsHtml + tail, [
+    { label: 'Cancel', cls: 'btn btn-soft', onClick: closeModal },
+    { label: 'Save', cls: 'btn', onClick: async () => {
+        const payload = {};
+        for (const f of R.fields) {
+          payload[f.k] = f.t === 'image' ? $('f_' + f.k).value : (f.t === 'textarea' && key !== 'staff' ? $('f_' + f.k).value : $('f_' + f.k).value.trim());
+          if (f.req && !payload[f.k]) return toast((f.l.replace(/ \(.*\)/, '')) + ' is required', 'error');
+        }
+        if (R.order) payload.sort_order = Number($('f_sort_order').value) || 0;
+        if (R.active === 'select') payload.active = $('f_active').value;
+        if (R.active === 'hidden') payload.active = 'true';
+        try {
+          await api(R.save, ex ? { id: ex.id, ...payload } : payload);
+          closeModal(); toast('Saved', 'success'); switchTab(key);
+        } catch (err) { toast(err.message, 'error'); }
+      } }
+  ]);
+}
+async function deleteResource(key, id) {
+  if (!confirm('Delete this item? This cannot be undone.')) return;
+  try { await api(RES[key].del, { id }); toast('Deleted', 'success'); switchTab(key); }
+  catch (err) { toast(err.message, 'error'); }
+}
+
+/* ---------- pages ---------- */
+async function loadPagesPane(pane) {
+  pane.innerHTML = pageHead('Pages', 'Create custom pages such as "School rules" or "Alumni".', '<button class="btn" id="newBtn">Add page</button>') + '<div id="resWrap">' + SKEL_TABLE + '</div>';
+  $('newBtn').onclick = () => openPageEditor();
+  const wrap = $('resWrap');
+  try {
+    const rows = await api('list_pages');
+    state.admin.pages = rows || [];
+    if (!rows.length) { wrap.innerHTML = '<div class="table-wrap">' + empty('No pages yet', 'Each page can have many sections.') + '</div>'; return; }
+    wrap.innerHTML = `<div class="table-wrap"><table><thead><tr><th>Title</th><th>Address</th><th>In menu</th><th>Status</th><th>Actions</th></tr></thead><tbody>
+      ${rows.map(r => `<tr>
+        <td><strong>${esc(r.title)}</strong></td>
+        <td><code style="font-size:12px">#page/${esc(r.slug)}</code></td>
+        <td>${String(r.in_menu) === 'true' ? '<span class="pill blue">In menu</span>' : '—'}</td>
+        <td>${cell(r.active, 'bool')}</td>
+        <td><div class="row-actions">
+          <button class="btn btn-sm" data-sections="${escAttr(r.id)}">Sections</button>
+          <button class="btn btn-sm btn-soft" data-edit="${escAttr(r.id)}">Edit</button>
+          <button class="btn btn-sm btn-danger" data-del="${escAttr(r.id)}">Delete</button>
+        </div></td></tr>`).join('')}</tbody></table></div>`;
+    wrap.onclick = e => {
+      const s = e.target.closest('[data-sections]'), ed = e.target.closest('[data-edit]'), dl = e.target.closest('[data-del]');
+      if (s) openPageSectionsEditor(s.dataset.sections);
+      if (ed) openPageEditor(ed.dataset.edit);
+      if (dl) deletePage(dl.dataset.del);
+    };
+  } catch (err) { errBox(wrap, err); }
+}
+function openPageEditor(id) {
+  const ex = id ? state.admin.pages.find(x => String(x.id) === String(id)) : null;
+  modal(ex ? 'Edit page' : 'New page', `
+    <div><label>Title</label><input id="pgTitle" value="${escAttr(ex?.title || '')}"></div>
+    <div><label>Address (lowercase letters, numbers, dashes)</label>
+      <input id="pgSlug" value="${escAttr(ex?.slug || '')}" placeholder="e.g. school-rules">
+      <p class="hint">The page will be reachable at #page/your-address</p></div>
+    <div class="form-row">
+      <div><label>Show in menu</label><select id="pgMenu"><option value="true"${String(ex?.in_menu) === 'true' ? ' selected' : ''}>Yes</option><option value="false"${String(ex?.in_menu) !== 'true' ? ' selected' : ''}>No</option></select></div>
+      <div><label>Display order</label><input type="number" id="pgOrder" value="${escAttr(ex?.sort_order || 0)}"></div>
+      <div><label>Visible</label><select id="pgActive"><option value="true"${!ex || String(ex.active) !== 'false' ? ' selected' : ''}>Yes</option><option value="false"${ex && String(ex.active) === 'false' ? ' selected' : ''}>No</option></select></div>
+    </div>`, [
+    { label: 'Cancel', cls: 'btn btn-soft', onClick: closeModal },
+    { label: 'Save', cls: 'btn', onClick: async () => {
+        const payload = {
+          title: $('pgTitle').value.trim(),
+          slug: $('pgSlug').value.trim().toLowerCase().replace(/[^a-z0-9-]+/g, '-').replace(/^-+|-+$/g, ''),
+          in_menu: $('pgMenu').value, sort_order: Number($('pgOrder').value) || 0, active: $('pgActive').value
+        };
+        if (!payload.title || !payload.slug) return toast('Title and address are required', 'error');
+        try { await api('save_page', ex ? { id: ex.id, ...payload } : payload); closeModal(); toast('Saved', 'success'); switchTab('pages'); }
+        catch (err) { toast(err.message, 'error'); }
+      } }
+  ]);
+}
+async function deletePage(id) {
+  if (!confirm('Delete this page and all its sections?')) return;
+  try { await api('delete_page', { id }); toast('Deleted', 'success'); switchTab('pages'); }
+  catch (err) { toast(err.message, 'error'); }
+}
+async function openPageSectionsEditor(pageId) {
+  const page = state.admin.pages.find(x => String(x.id) === String(pageId));
+  let sections;
+  try { sections = await api('list_page_sections', { page_id: pageId }); }
+  catch (err) { return toast(err.message, 'error'); }
+  state.admin.pageSections = sections || [];
+  const html = `
+    <p class="hint" style="margin:0">Sections appear on the page in the order below.</p>
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:10px">
+      <strong style="color:var(--navy)">${esc(page ? page.title : 'Page')}</strong>
+      <button class="btn btn-sm" data-sec-add>Add section</button>
+    </div>
+    <div style="display:grid;gap:10px">${sections.length ? sections.map(s => `
+      <div class="sec-item">
+        ${s.image_url ? `<img class="thumb" src="${escAttr(s.image_url)}" alt="">` : '<span class="thumb"></span>'}
+        <div class="txt"><strong>${esc(s.heading || '(no heading)')}</strong><span>${esc(shorten(s.body || '', 80))}</span>
+          <span style="color:${String(s.active) !== 'false' ? 'var(--ok)' : 'var(--soft)'}">${String(s.active) !== 'false' ? 'Visible' : 'Hidden'}</span></div>
+        <div class="btns"><button class="btn btn-sm btn-soft" data-sec-edit="${escAttr(s.id)}">Edit</button>
+          <button class="btn btn-sm btn-danger" data-sec-del="${escAttr(s.id)}">Delete</button></div>
+      </div>`).join('') : empty('No sections yet', 'Add the first one above.')}</div>`;
+  const el = modal('Manage sections', html, [{ label: 'Close', cls: 'btn btn-soft', onClick: closeModal }], 'wide');
+  el.querySelector('.modal-body').addEventListener('click', async e => {
+    if (e.target.closest('[data-sec-add]')) openPageSectionEditor(pageId);
+    const ed = e.target.closest('[data-sec-edit]'), dl = e.target.closest('[data-sec-del]');
+    if (ed) openPageSectionEditor(pageId, ed.dataset.secEdit);
+    if (dl && confirm('Delete this section?')) {
+      try { await api('delete_page_section', { id: dl.dataset.secDel }); toast('Deleted', 'success'); openPageSectionsEditor(pageId); }
+      catch (err) { toast(err.message, 'error'); }
+    }
+  });
+}
+function openPageSectionEditor(pageId, sectionId) {
+  const ex = sectionId ? (state.admin.pageSections || []).find(s => String(s.id) === String(sectionId)) : null;
+  modal(ex ? 'Edit section' : 'New section', `
+    <div><label>Heading (optional)</label><input id="psHeading" value="${escAttr(ex?.heading || '')}"></div>
+    <div><label>Text</label><textarea id="psBody" rows="7">${esc(ex?.body || '')}</textarea></div>
+    ${imageField('psImg', 'Photo (optional)', ex?.image_url)}
+    <div class="form-row">
+      <div><label>Display order</label><input type="number" id="psOrder" value="${escAttr(ex?.sort_order || 0)}"></div>
+      <div><label>Visible</label><select id="psActive"><option value="true"${!ex || String(ex.active) !== 'false' ? ' selected' : ''}>Yes</option><option value="false"${ex && String(ex.active) === 'false' ? ' selected' : ''}>No (hidden)</option></select></div>
+    </div>`, [
+    { label: 'Cancel', cls: 'btn btn-soft', onClick: () => openPageSectionsEditor(pageId) },
+    { label: 'Save', cls: 'btn', onClick: async () => {
+        const payload = { page_id: pageId, heading: $('psHeading').value.trim(), body: $('psBody').value,
+          image_url: $('psImg').value, sort_order: Number($('psOrder').value) || 0, active: $('psActive').value };
+        try { await api('save_page_section', ex ? { id: ex.id, ...payload } : payload); toast('Saved', 'success'); openPageSectionsEditor(pageId); }
+        catch (err) { toast(err.message, 'error'); }
+      } }
+  ]);
+}
+
+/* ---------- news ---------- */
+async function loadContentPane(pane) {
+  pane.innerHTML = pageHead('News & announcements', 'Posts shown in the News section.', '<button class="btn" id="newBtn">Add post</button>') + '<div id="resWrap">' + SKEL_TABLE + '</div>';
+  $('newBtn').onclick = () => openContentEditor();
+  const wrap = $('resWrap');
+  try {
+    const rows = await api('list_content');
+    state.admin.content = rows || [];
+    if (!rows.length) { wrap.innerHTML = '<div class="table-wrap">' + empty('No posts yet', 'Click "Add post" to publish the first one.') + '</div>'; return; }
+    wrap.innerHTML = `<div class="table-wrap"><table><thead><tr><th>Image</th><th>Title</th><th>Status</th><th>Author</th><th>Date</th><th>Actions</th></tr></thead><tbody>
+      ${rows.map(r => `<tr>
+        <td>${cell(r.image_url, 'img')}</td>
+        <td><strong>${esc(r.title)}</strong>${r.pinned ? ' <span class="pill blue">Pinned</span>' : ''}</td>
+        <td><span class="pill ${r.status === 'draft' ? 'off' : 'ok'}">${esc(r.status === 'draft' ? 'Draft' : 'Published')}</span></td>
+        <td>${esc(r.author || '—')}</td><td>${esc(fmtDate(r.created_at) || '—')}</td>
+        <td><div class="row-actions">
+          <button class="btn btn-sm btn-soft" data-edit="${escAttr(r.id)}">Edit</button>
+          <button class="btn btn-sm btn-danger" data-del="${escAttr(r.id)}">Delete</button>
+        </div></td></tr>`).join('')}</tbody></table></div>`;
+    wrap.onclick = e => {
+      const ed = e.target.closest('[data-edit]'), dl = e.target.closest('[data-del]');
+      if (ed) openContentEditor(ed.dataset.edit);
+      if (dl) deleteContentItem(dl.dataset.del);
+    };
+  } catch (err) { errBox(wrap, err); }
+}
+function openContentEditor(id) {
+  const ex = id ? state.admin.content.find(x => String(x.id) === String(id)) : null;
+  modal(ex ? 'Edit post' : 'New post', `
+    <div><label>Title</label><input id="cTitle" value="${escAttr(ex?.title || '')}"></div>
+    <div><label>Category</label><input id="cCat" value="${escAttr(ex?.category || '')}" placeholder="e.g. Events, Exams, Holidays"></div>
+    <div><label>Body</label><textarea id="cBody" rows="6">${esc(ex?.body || '')}</textarea></div>
+    ${imageField('cImg', 'Photo (optional)', ex?.image_url)}
+    <div class="form-row">
+      <div><label>Status</label><select id="cStatusSel"><option value="draft"${ex?.status === 'draft' ? ' selected' : ''}>Draft</option><option value="published"${ex?.status === 'published' || !ex ? ' selected' : ''}>Published</option></select></div>
+      <div><label>Publish date</label><input type="datetime-local" id="cPublish" value="${ex?.publish_date ? toLocalInput(ex.publish_date) : ''}"></div>
+    </div>
+    <label style="display:flex;align-items:center;gap:10px;font-weight:700;margin:0"><input type="checkbox" id="cPinned" style="width:auto" ${ex?.pinned ? 'checked' : ''}> Pin this post to the top</label>`, [
+    { label: 'Cancel', cls: 'btn btn-soft', onClick: closeModal },
+    { label: 'Save', cls: 'btn', onClick: async () => {
+        const payload = { title: $('cTitle').value.trim(), body: $('cBody').value, category: $('cCat').value.trim(),
+          image_url: $('cImg').value, status: $('cStatusSel').value, pinned: $('cPinned').checked, publish_date: $('cPublish').value || '' };
+        if (!payload.title) return toast('Title is required', 'error');
+        try {
+          if (ex) await api('update_content', { id: ex.id, ...payload }); else await api('create_content', payload);
+          closeModal(); toast('Saved', 'success'); switchTab('content');
+        } catch (err) { toast(err.message, 'error'); }
+      } }
+  ], 'wide');
+}
+async function deleteContentItem(id) {
+  const p = state.admin.content.find(x => String(x.id) === String(id));
+  if (!confirm(`Delete "${p ? p.title : 'this post'}"?`)) return;
+  try { await api('delete_content', { id }); toast('Deleted', 'success'); switchTab('content'); }
+  catch (err) { toast(err.message, 'error'); }
+}
+
+/* ---------- users ---------- */
+async function loadUsersPane(pane) {
+  if (state.role !== 'super_admin') { pane.innerHTML = empty('Access denied', 'Only super admins can manage users.'); return; }
+  pane.innerHTML = pageHead('Users', 'Manage admin accounts and permissions.', '<button class="btn" id="newBtn">Add user</button>') + '<div id="resWrap">' + SKEL_TABLE + '</div>';
+  $('newBtn').onclick = openUserEditor;
+  const wrap = $('resWrap');
+  try {
+    const rows = await api('list_users');
+    state.admin.users = rows || [];
+    wrap.innerHTML = `<div class="table-wrap"><table><thead><tr><th>Username</th><th>Email</th><th>Role</th><th>Status</th><th>Last login</th><th>Actions</th></tr></thead><tbody>
+      ${rows.map(r => `<tr>
+        <td><strong>${esc(r.username)}</strong></td><td>${esc(r.email || '—')}</td>
+        <td><span class="pill blue">${esc(r.role)}</span></td>
+        <td><span class="pill ${r.status === 'disabled' ? 'off' : 'ok'}">${esc(r.status)}</span></td>
+        <td>${r.last_login ? esc(fmtDate(r.last_login)) : '—'}</td>
+        <td><div class="row-actions">
+          <button class="btn btn-sm btn-soft" data-act="role" data-user="${escAttr(r.username)}">Role</button>
+          ${r.status === 'active'
+            ? `<button class="btn btn-sm btn-danger" data-act="disable" data-user="${escAttr(r.username)}">Disable</button>`
+            : `<button class="btn btn-sm btn-soft" data-act="enable" data-user="${escAttr(r.username)}">Enable</button>`}
+          <button class="btn btn-sm btn-soft" data-act="reset" data-user="${escAttr(r.username)}">Reset password</button>
+        </div></td></tr>`).join('')}</tbody></table></div>`;
+    wrap.onclick = async e => {
+      const b = e.target.closest('[data-act]'); if (!b) return;
+      const u = b.dataset.user;
+      if (b.dataset.act === 'role') openRoleEditor(u);
+      if (b.dataset.act === 'reset') resetUserPassword(u);
+      if (b.dataset.act === 'disable' && confirm(`Disable "${u}"?`)) {
+        try { await api('disable_user', { username: u }); toast('Disabled', 'success'); switchTab('users'); } catch (err) { toast(err.message, 'error'); }
+      }
+      if (b.dataset.act === 'enable') {
+        try { await api('enable_user', { username: u }); toast('Enabled', 'success'); switchTab('users'); } catch (err) { toast(err.message, 'error'); }
+      }
+    };
+  } catch (err) { errBox(wrap, err); }
+}
+function openUserEditor() {
+  modal('Add user', `
+    <div><label>Username</label><input id="uName"></div>
+    <div><label>Email (optional)</label><input id="uEmail" type="email"></div>
+    <div><label>Password (min 8 characters)</label><input id="uPass" type="password" minlength="8"></div>
+    <div><label>Role</label><select id="uRole"><option value="admin">admin</option><option value="editor">editor</option></select></div>`, [
+    { label: 'Cancel', cls: 'btn btn-soft', onClick: closeModal },
+    { label: 'Create', cls: 'btn', onClick: async () => {
+        const payload = { username: $('uName').value.trim(), email: $('uEmail').value.trim(), password: $('uPass').value, role: $('uRole').value };
+        if (!payload.username || payload.password.length < 8) return toast('Enter a username and a password of 8+ characters', 'error');
+        try { await api('create_user', payload); closeModal(); toast('User created', 'success'); switchTab('users'); }
+        catch (err) { toast(err.message, 'error'); }
+      } }
+  ]);
+}
+function openRoleEditor(username) {
+  const u = state.admin.users.find(x => x.username === username); if (!u) return;
+  modal('Change role: ' + username, `
+    <div><label>Role</label><select id="rRole"><option value="admin"${u.role === 'admin' ? ' selected' : ''}>admin</option><option value="editor"${u.role === 'editor' ? ' selected' : ''}>editor</option></select>
+    <p class="hint">The super_admin role can only be set directly in the sheet.</p></div>`, [
+    { label: 'Cancel', cls: 'btn btn-soft', onClick: closeModal },
+    { label: 'Save', cls: 'btn', onClick: async () => {
+        try { await api('update_role', { username, role: $('rRole').value }); closeModal(); toast('Role updated', 'success'); switchTab('users'); }
+        catch (err) { toast(err.message, 'error'); }
+      } }
+  ]);
+}
+function resetUserPassword(username) {
+  modal('Reset password: ' + username, `<div><label>New password (min 8 characters)</label><input id="rpPass" type="password" minlength="8"></div>`, [
+    { label: 'Cancel', cls: 'btn btn-soft', onClick: closeModal },
+    { label: 'Reset', cls: 'btn btn-danger', onClick: async () => {
+        const pw = $('rpPass').value; if (pw.length < 8) return toast('Password must be 8+ characters', 'error');
+        try { await api('reset_password', { username, password: pw }); closeModal(); toast('Password reset', 'success'); }
+        catch (err) { toast(err.message, 'error'); }
+      } }
+  ]);
+}
+
+/* ---------- account ---------- */
+function renderAccountPane(pane) {
+  pane.innerHTML = pageHead('Account', 'Change your password.') + `
+    <div class="panel" style="max-width:440px"><form id="pwForm">
+      <div><label>Current password</label><input type="password" id="cpOld" autocomplete="current-password" required></div>
+      <div><label>New password</label><input type="password" id="cpNew" minlength="8" autocomplete="new-password" required></div>
+      <div><label>Confirm new password</label><input type="password" id="cpConfirm" minlength="8" autocomplete="new-password" required></div>
+      <button type="submit" class="btn" style="align-self:flex-start">Update password</button>
+    </form></div>`;
+  $('pwForm').onsubmit = doChangePassword;
+}
+
+/* =========================================================
+   BOOT
+   ========================================================= */
+(function boot() {
+  $('year').textContent = new Date().getFullYear();
+  buildAdminTabs();
+
+  $('menuToggle').onclick = toggleMenu;
+  $('heroPrev').onclick = () => heroGo(state.heroIndex - 1);
+  $('heroNext').onclick = () => heroGo(state.heroIndex + 1);
+  $('heroDots').addEventListener('click', e => { const d = e.target.closest('.hero-dot'); if (d) heroGo(Number(d.dataset.i)); });
+  $('galleryGrid').addEventListener('click', e => { const g = e.target.closest('.g-item'); if (g) openLightbox(Number(g.dataset.i)); });
+  $('newsGrid').addEventListener('click', e => { const p = e.target.closest('.post'); if (p) openPost(p.dataset.id); });
+  $('mobileMenu').addEventListener('click', e => { if (e.target.closest('a')) closeMenu(); });
+  $('adminLink').onclick = e => { e.preventDefault(); showLogin(); };
+  $('loginForm').onsubmit = doLogin;
+  $('loginBack').onclick = showPublic;
+  $('adminViewSite').onclick = showPublic;
+  $('adminLogout').onclick = logout;
+
+  document.addEventListener('keydown', e => {
+    if (document.querySelector('.lightbox')) {
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') openLightbox(state.lbIndex - 1);
+      if (e.key === 'ArrowRight') openLightbox(state.lbIndex + 1);
+    } else if (e.key === 'Escape' && $('modalRoot').firstChild) closeModal();
+  });
+
+  // nav shadow + active-section highlight
+  const spyIds = ['home','about','academics','staff','gallery','admissions','news','contact'];
+  let ticking = false;
+  window.addEventListener('scroll', () => {
+    if (ticking) return; ticking = true;
+    requestAnimationFrame(() => {
+      ticking = false;
+      $('navbar').classList.toggle('scrolled', window.scrollY > 8);
+      if ($('pageView').style.display === 'block') return;
+      let active = 'home';
+      spyIds.forEach(id => { const el = $(id); if (el && el.getBoundingClientRect().top <= 140) active = id; });
+      if (window.innerHeight + window.scrollY >= document.body.scrollHeight - 4) active = 'contact';
+      $('navLinks').querySelectorAll('a:not([data-page])').forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + active));
+    });
+  }, { passive: true });
+
+  if (state.token) showAdmin(); else showPublic();
+  loadPublicSite();
+  observeReveals();
+})();
+</script>
+</body>
+</html>
