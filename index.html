@@ -813,10 +813,22 @@ function esc(s) {
   return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 }
 const escAttr = esc;
-function fixImg(u) {   // make Google Drive links embeddable
+function fixImg(u) {   // normalize Google Drive file links for direct image embedding
   u = String(u || '').trim();
-  const m = u.match(/drive\.google\.com\/(?:file\/d\/|open\?id=|uc\?(?:[^#]*&)?id=|thumbnail\?(?:[^#]*&)?id=)([\w-]{15,})/);
-  return m ? 'https://lh3.googleusercontent.com/d/' + m[1] : u;
+  if (!u) return '';
+
+  // Accept the common Drive URL formats, including the URL returned by older uploads.
+  const patterns = [
+    /drive\.google\.com\/file\/d\/([\w-]+)/i,
+    /drive\.google\.com\/open\?[^#]*\bid=([\w-]+)/i,
+    /drive\.google\.com\/(?:uc|thumbnail)\?[^#]*\bid=([\w-]+)/i,
+    /drive\.google\.com\/uc\?id=([\w-]+)/i
+  ];
+  for (const pattern of patterns) {
+    const match = u.match(pattern);
+    if (match) return 'https://drive.google.com/thumbnail?id=' + match[1] + '&sz=w1600';
+  }
+  return u;
 }
 function cssUrl(u) {   // safe unquoted css url()
   return 'url(' + fixImg(u).replace(/["'()\\\s<>]/g, c => '%' + c.charCodeAt(0).toString(16).toUpperCase().padStart(2, '0')) + ')';
@@ -1310,7 +1322,7 @@ function imageField(id, label, val) {
   return `<div><label>${esc(label)}</label>
     <div class="upload-zone" data-pick="${id}"><span id="${id}_st">${val ? 'Replace photo' : 'Choose a photo'}</span><small>JPG or PNG, up to 5 MB</small></div>
     <input type="file" id="${id}_file" accept="image/*" hidden>
-    <img id="${id}_pv" class="img-preview" alt="" ${val ? '' : 'hidden'} src="${escAttr(val || '')}">
+    <img id="${id}_pv" class="img-preview" alt="" ${val ? '' : 'hidden'} src="${escAttr(fixImg(val || ''))}">
     <input type="hidden" id="${id}" value="${escAttr(val || '')}"></div>`;
 }
 async function prepImage(file) {
@@ -1339,7 +1351,7 @@ async function uploadImage(id, file) {
     const b64 = await fileToBase64(p.blob);
     const res = await api('upload_image', { base64: b64, filename: p.name, mime: p.mime });
     $(id).value = res.url;
-    const pv = $(id + '_pv'); pv.src = res.url; pv.hidden = false;
+    const pv = $(id + '_pv'); pv.src = fixImg(res.url); pv.hidden = false;
     st.textContent = 'Uploaded. Click to replace.';
     toast('Image uploaded', 'success');
   } catch (err) {
@@ -1478,7 +1490,7 @@ const RES = {
     none: 'No links yet. Add the result portal or other resources.' }
 };
 function cell(v, type) {
-  if (type === 'img') return v ? `<img class="thumb" loading="lazy" src="${escAttr(v)}" alt="">` : '<span class="thumb"></span>';
+  if (type === 'img') return v ? `<img class="thumb" loading="lazy" src="${escAttr(fixImg(v))}" alt="">` : '<span class="thumb"></span>';
   if (type === 'strong') return `<strong>${esc(v || '')}</strong>`;
   if (type === 'bool') return String(v) !== 'false' ? '<span class="pill ok">Visible</span>' : '<span class="pill off">Hidden</span>';
   if (type === 'link') return v ? `<a href="${escAttr(safeUrl(v))}" target="_blank" rel="noopener">${esc(shorten(v, 44))}</a>` : '—';
